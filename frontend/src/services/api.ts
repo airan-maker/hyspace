@@ -16,8 +16,11 @@ import type {
   WorkloadPresetDetail,
 } from '../types/workload';
 
+// 환경변수에서 API URL 가져오기 (프로덕션 배포 시 설정)
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${API_BASE_URL}/api`,
   headers: {
     'Content-Type': 'application/json',
   },
