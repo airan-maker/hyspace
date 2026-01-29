@@ -4,6 +4,7 @@ import { ConfigPanel, PPAResults } from './components/PPAOptimizer';
 import { CostPanel } from './components/CostAnalysis';
 import { AlternativesComparison } from './components/Charts';
 import { WorkloadInputPanel, WorkloadResults, CompetitiveBenchmark } from './components/WorkloadAnalyzer';
+import YieldDashboardPage from './components/YieldDashboard';
 import { useSimulation } from './hooks/useSimulation';
 import { useWorkloadAnalysis } from './hooks/useWorkloadAnalysis';
 
@@ -164,6 +165,8 @@ function App() {
         return <PPAOptimizerPage />;
       case 'workload':
         return <WorkloadAnalyzerPage />;
+      case 'yield':
+        return <YieldDashboardPage />;
       case 'history':
         return <HistoryPage />;
       default:

@@ -1,4 +1,4 @@
-export type PageType = 'ppa' | 'workload' | 'history';
+export type PageType = 'ppa' | 'workload' | 'yield' | 'history';
 
 interface HeaderProps {
   currentPage: PageType;
@@ -9,6 +9,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
   const navItems: { id: PageType; label: string }[] = [
     { id: 'ppa', label: 'PPA Optimizer' },
     { id: 'workload', label: 'Workload Analyzer' },
+    { id: 'yield', label: 'Yield Dashboard' },
     { id: 'history', label: 'History' },
   ];
 
