@@ -21,7 +21,7 @@ app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
     description="""
-    ## Silicon Nexus API
+    ## HySpace API
 
     AI 기반 반도체 로드맵 설계 플랫폼의 백엔드 API입니다.
 

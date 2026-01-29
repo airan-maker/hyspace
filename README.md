@@ -1,10 +1,10 @@
-# Silicon Nexus
+# HySpace
 
 AI 기반 차세대 반도체 로드맵 설계 플랫폼
 
 ## Overview
 
-Silicon Nexus는 반도체 칩 설계의 **PPA(Power, Performance, Area)** 트레이드오프와 **제조 비용**을 실시간으로 시뮬레이션하는 플랫폼입니다.
+HySpace는 반도체 칩 설계의 **PPA(Power, Performance, Area)** 트레이드오프와 **제조 비용**을 실시간으로 시뮬레이션하는 플랫폼입니다.
 
 ### 핵심 기능
 
@@ -33,7 +33,7 @@ Silicon Nexus는 반도체 칩 설계의 **PPA(Power, Performance, Area)** 트�
 
 ```bash
 # 프로젝트 클론
-cd silicon-nexus
+cd hyspace
 
 # Docker Compose로 전체 스택 실행
 docker-compose up -d
@@ -86,7 +86,7 @@ npm run dev
 ## Project Structure
 
 ```
-silicon-nexus/
+hyspace/
 ├── backend/
 │   ├── app/
 │   │   ├── api/              # API 라우터

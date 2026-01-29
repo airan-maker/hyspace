@@ -3,11 +3,11 @@ version: '3.8'
 services:
   db:
     image: postgres:15-alpine
-    container_name: silicon-nexus-db
+    container_name: hyspace-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: silicon_nexus
+      POSTGRES_DB: hyspace
     ports:
       - "5432:5432"
     volumes:
@@ -22,9 +22,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: silicon-nexus-backend
+    container_name: hyspace-backend
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/silicon_nexus
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/hyspace
     ports:
       - "8000:8000"
     depends_on:
@@ -38,7 +38,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: silicon-nexus-frontend
+    container_name: hyspace-frontend
     ports:
       - "5173:5173"
     depends_on:

@@ -3,12 +3,12 @@ from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    app_name: str = "Silicon Nexus"
+    app_name: str = "HySpace"
     app_version: str = "1.0.0"
     debug: bool = True
 
     # Database
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/silicon_nexus"
+    database_url: str = "postgresql://postgres:postgres@localhost:5432/hyspace"
 
     # CORS
     cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
