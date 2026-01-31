@@ -7,6 +7,7 @@ import { WorkloadInputPanel, WorkloadResults, CompetitiveBenchmark } from './com
 import YieldDashboardPage from './components/YieldDashboard';
 import { useSimulation } from './hooks/useSimulation';
 import { useWorkloadAnalysis } from './hooks/useWorkloadAnalysis';
+import { SeedDataWizard } from './components/SeedDataWizard';
 
 function PPAOptimizerPage() {
   const {
@@ -167,6 +168,8 @@ function App() {
         return <WorkloadAnalyzerPage />;
       case 'yield':
         return <YieldDashboardPage />;
+      case 'seed':
+        return <SeedDataWizard />;
       case 'history':
         return <HistoryPage />;
       default:

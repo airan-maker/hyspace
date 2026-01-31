@@ -44,45 +44,57 @@ class PPAResult:
     confidence_score: float
 
 
-# 공정 노드별 기본 파라미터 (실제 데이터 기반 추정치)
-DEFAULT_PROCESS_PARAMS = {
-    3: ProcessParams(
-        node_nm=3,
-        base_core_area=0.50,  # mm² per CPU core
-        gpu_core_area=0.15,  # mm² per GPU core
-        npu_core_area=0.20,  # mm² per NPU core
-        cache_density=0.35,  # mm² per MB
-        io_area_per_lane=0.25,  # mm² per PCIe lane
-        memory_ctrl_area=2.5,  # mm² per channel
-        power_density=0.45,  # mW per mm²
-        max_frequency_ghz=4.0,
-        scaling_factor=1.0
-    ),
-    5: ProcessParams(
-        node_nm=5,
-        base_core_area=0.65,
-        gpu_core_area=0.20,
-        npu_core_area=0.28,
-        cache_density=0.45,
-        io_area_per_lane=0.30,
-        memory_ctrl_area=3.0,
-        power_density=0.40,
-        max_frequency_ghz=3.5,
-        scaling_factor=1.0
-    ),
-    7: ProcessParams(
-        node_nm=7,
-        base_core_area=0.85,
-        gpu_core_area=0.28,
-        npu_core_area=0.38,
-        cache_density=0.60,
-        io_area_per_lane=0.38,
-        memory_ctrl_area=3.8,
-        power_density=0.35,
-        max_frequency_ghz=3.0,
-        scaling_factor=1.0
-    ),
-}
+# 공정 노드별 기본 파라미터 - 온톨로지에서 확장
+def _build_process_params() -> dict:
+    """반도체 온톨로지에서 공정 노드 파라미터 구축"""
+    # 기본 파라미터 (항상 사용 가능한 폴백)
+    base_params = {
+        3: ProcessParams(
+            node_nm=3, base_core_area=0.50, gpu_core_area=0.15,
+            npu_core_area=0.20, cache_density=0.35, io_area_per_lane=0.25,
+            memory_ctrl_area=2.5, power_density=0.45, max_frequency_ghz=4.0,
+        ),
+        5: ProcessParams(
+            node_nm=5, base_core_area=0.65, gpu_core_area=0.20,
+            npu_core_area=0.28, cache_density=0.45, io_area_per_lane=0.30,
+            memory_ctrl_area=3.0, power_density=0.40, max_frequency_ghz=3.5,
+        ),
+        7: ProcessParams(
+            node_nm=7, base_core_area=0.85, gpu_core_area=0.28,
+            npu_core_area=0.38, cache_density=0.60, io_area_per_lane=0.38,
+            memory_ctrl_area=3.8, power_density=0.35, max_frequency_ghz=3.0,
+        ),
+    }
+
+    # 온톨로지에서 추가 노드 확장
+    try:
+        from app.ontology import SemiconductorOntology
+        all_nodes = SemiconductorOntology.get_all_nodes()
+        for key, node in all_nodes.items():
+            nm = node.node_nm
+            nm_int = max(2, round(nm))  # Sub-2nm → 2nm bucket
+            if nm_int in base_params:
+                continue  # 기존 정밀 파라미터 유지
+            # 3nm 기준 스케일링으로 추가 노드 생성
+            scale = nm_int / 3.0
+            base_params[nm_int] = ProcessParams(
+                node_nm=nm_int,
+                base_core_area=round(0.50 * scale, 3),
+                gpu_core_area=round(0.15 * scale, 3),
+                npu_core_area=round(0.20 * scale, 3),
+                cache_density=round(0.35 * scale, 3),
+                io_area_per_lane=round(0.25 * scale, 3),
+                memory_ctrl_area=round(2.5 * scale, 2),
+                power_density=round(0.45 / scale, 3),
+                max_frequency_ghz=round(4.0 / (scale ** 0.3), 1),
+                scaling_factor=round(scale, 2),
+            )
+    except Exception:
+        pass  # 온톨로지 미사용 시 기본값 유지
+
+    return base_params
+
+DEFAULT_PROCESS_PARAMS = _build_process_params()
 
 
 class PPAEngine:

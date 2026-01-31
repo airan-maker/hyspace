@@ -1,4 +1,4 @@
-export type PageType = 'ppa' | 'workload' | 'yield' | 'history';
+export type PageType = 'ppa' | 'workload' | 'yield' | 'seed' | 'history';
 
 interface HeaderProps {
   currentPage: PageType;
@@ -10,6 +10,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
     { id: 'ppa', label: 'PPA Optimizer' },
     { id: 'workload', label: 'Workload Analyzer' },
     { id: 'yield', label: 'Yield Dashboard' },
+    { id: 'seed', label: 'Seed Agent' },
     { id: 'history', label: 'History' },
   ];
 

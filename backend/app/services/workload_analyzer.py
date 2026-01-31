@@ -151,42 +151,67 @@ class WorkloadAnalysisResult:
     analysis_notes: list[str] = field(default_factory=list)
 
 
-# 경쟁사 스펙 데이터
-COMPETITOR_SPECS = {
-    "NVIDIA H100": {
-        "tops_fp16": 1979,
-        "tops_int8": 3958,
-        "power_w": 700,
-        "bandwidth_tbps": 3.35,
-        "memory_gb": 80,
-        "price_estimate": 30000,
-    },
-    "AMD MI300X": {
-        "tops_fp16": 1307,
-        "tops_int8": 2614,
-        "power_w": 750,
-        "bandwidth_tbps": 5.3,
-        "memory_gb": 192,
-        "price_estimate": 15000,
-    },
-    "Intel Gaudi 3": {
-        "tops_fp16": 900,
-        "tops_int8": 1800,
-        "power_w": 600,
-        "bandwidth_tbps": 3.7,
-        "memory_gb": 128,
-        "price_estimate": 12000,
-    },
-}
+# 경쟁사 스펙 데이터 - 온톨로지에서 동적 로드
+def _load_competitor_specs() -> dict:
+    """AI 산업 온톨로지에서 경쟁사 가속기 데이터 로드"""
+    try:
+        from app.ontology import AIIndustryOntology
+        accelerators = AIIndustryOntology.get_all_accelerators()
+        specs = {}
+        for key, acc in accelerators.items():
+            specs[acc.name] = {
+                "tops_fp16": acc.compute.bf16_tflops * 2,  # BF16 TFLOPS → FP16 TOPS approx
+                "tops_int8": acc.compute.int8_tops,
+                "power_w": acc.tdp_watts,
+                "bandwidth_tbps": acc.memory.bandwidth_tbps,
+                "memory_gb": acc.memory.capacity_gb,
+                "price_estimate": acc.msrp_usd or 10000,
+            }
+        return specs
+    except Exception:
+        # 온톨로지 로드 실패 시 기본 데이터
+        return {
+            "NVIDIA H100 SXM": {
+                "tops_fp16": 1979, "tops_int8": 3958, "power_w": 700,
+                "bandwidth_tbps": 3.35, "memory_gb": 80, "price_estimate": 30000,
+            },
+            "AMD MI300X": {
+                "tops_fp16": 1307, "tops_int8": 2614, "power_w": 750,
+                "bandwidth_tbps": 5.3, "memory_gb": 192, "price_estimate": 15000,
+            },
+            "Intel Gaudi 3": {
+                "tops_fp16": 900, "tops_int8": 1800, "power_w": 600,
+                "bandwidth_tbps": 3.7, "memory_gb": 128, "price_estimate": 12000,
+            },
+        }
 
-# 메모리 타입별 대역폭 (TB/s)
-MEMORY_BANDWIDTH = {
-    MemoryType.HBM4: 6.4,
-    MemoryType.HBM3E: 4.8,
-    MemoryType.HBM3: 3.2,
-    MemoryType.GDDR6: 1.0,
-    MemoryType.LPDDR5: 0.128,
-}
+COMPETITOR_SPECS = _load_competitor_specs()
+
+# 메모리 타입별 대역폭 (TB/s) - 온톨로지에서 HBM 스펙 참조
+def _load_memory_bandwidth() -> dict:
+    """HBM 온톨로지에서 대역폭 데이터 로드 (6-stack 기준 TB/s)"""
+    try:
+        from app.ontology import AIIndustryOntology
+        hbm_specs = AIIndustryOntology.get_all_hbm()
+        bw = {}
+        hbm_map = {"HBM4": MemoryType.HBM4, "HBM3E": MemoryType.HBM3E, "HBM3": MemoryType.HBM3}
+        for key, mem_type in hbm_map.items():
+            if key in hbm_specs:
+                # 6-stack 기준 총 대역폭 (GB/s → TB/s)
+                bw[mem_type] = round(hbm_specs[key].bandwidth_per_stack_gbps * 6 / 1000, 2)
+        bw.setdefault(MemoryType.HBM4, 6.4)
+        bw.setdefault(MemoryType.HBM3E, 4.8)
+        bw.setdefault(MemoryType.HBM3, 3.2)
+        bw[MemoryType.GDDR6] = 1.0
+        bw[MemoryType.LPDDR5] = 0.128
+        return bw
+    except Exception:
+        return {
+            MemoryType.HBM4: 6.4, MemoryType.HBM3E: 4.8,
+            MemoryType.HBM3: 3.2, MemoryType.GDDR6: 1.0, MemoryType.LPDDR5: 0.128,
+        }
+
+MEMORY_BANDWIDTH = _load_memory_bandwidth()
 
 # 정밀도별 TOPS/core
 TOPS_PER_CORE = {

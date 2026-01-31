@@ -10,6 +10,8 @@ from .notifications import router as notifications_router
 from .reports import router as reports_router
 from .predictions import router as predictions_router
 from .websocket import router as websocket_router
+from .ontology import router as ontology_router
+from .seed import router as seed_router
 
 api_router = APIRouter()
 api_router.include_router(simulation_router, prefix="/simulate", tags=["Simulation"])
@@ -23,3 +25,5 @@ api_router.include_router(notifications_router, tags=["Notifications"])
 api_router.include_router(reports_router, tags=["Reports"])
 api_router.include_router(predictions_router, tags=["Predictive Analytics"])
 api_router.include_router(websocket_router, tags=["Real-time WebSocket"])
+api_router.include_router(ontology_router, tags=["Domain Ontology"])
+api_router.include_router(seed_router, tags=["Seed Data Agent"])

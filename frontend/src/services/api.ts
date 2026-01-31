@@ -125,4 +125,79 @@ export async function analyzePresetWorkload(presetId: string): Promise<WorkloadA
   return data;
 }
 
+// Seed Data Agent
+export interface SeedScenario {
+  scenario_id: string;
+  name: string;
+  name_kr: string;
+  description: string;
+  process_node: string;
+  target_product: string;
+  tags: string[];
+  wspm?: number;
+  equipment_count?: number;
+  wip_lots?: number;
+  history_days?: number;
+}
+
+export interface SeedPreview {
+  scenario: { id: string; name: string; process_node: string };
+  summary: {
+    scenario: string;
+    process_node: string;
+    generated_at: string;
+    data_counts: Record<string, string>;
+    ontology_sources: string[];
+  };
+  [key: string]: unknown;
+}
+
+export interface SeedApplyResult {
+  status: string;
+  scenario: { id: string; name: string };
+  loaded: Record<string, { created: number; skipped: number }>;
+  message: string;
+}
+
+export interface SeedStatus {
+  process_nodes: number;
+  ip_blocks: number;
+  fab_equipment: number;
+  wip_items: number;
+  materials: number;
+  suppliers: number;
+  wafer_records: number;
+  yield_events: number;
+}
+
+export async function getSeedScenarios(): Promise<{ count: number; scenarios: SeedScenario[] }> {
+  const { data } = await api.get('/seed/scenarios');
+  return data;
+}
+
+export async function getSeedScenarioDetail(id: string): Promise<SeedScenario> {
+  const { data } = await api.get(`/seed/scenarios/${id}`);
+  return data;
+}
+
+export async function previewSeedData(scenarioId: string): Promise<SeedPreview> {
+  const { data } = await api.post(`/seed/preview/${scenarioId}`);
+  return data;
+}
+
+export async function applySeedData(scenarioId: string, clearExisting: boolean = false): Promise<SeedApplyResult> {
+  const { data } = await api.post(`/seed/apply/${scenarioId}?clear_existing=${clearExisting}`);
+  return data;
+}
+
+export async function getSeedStatus(): Promise<SeedStatus> {
+  const { data } = await api.get('/seed/status');
+  return data;
+}
+
+export async function clearSeedData(): Promise<{ status: string; deleted: Record<string, number> }> {
+  const { data } = await api.delete('/seed/clear?confirm=true');
+  return data;
+}
+
 export default api;
