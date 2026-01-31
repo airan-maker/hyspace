@@ -200,4 +200,90 @@ export async function clearSeedData(): Promise<{ status: string; deleted: Record
   return data;
 }
 
+// ─────────────────────────────────────────────────────
+// Graph API
+// ─────────────────────────────────────────────────────
+
+export interface GraphStatus {
+  available: boolean;
+  nodes?: Record<string, number>;
+  relationships?: Record<string, number>;
+  total_nodes?: number;
+  total_relationships?: number;
+  message?: string;
+}
+
+export interface GraphNode {
+  id: number;
+  label: string;
+  name: string;
+  properties: Record<string, unknown>;
+}
+
+export interface GraphLink {
+  source: number;
+  target: number;
+  type: string;
+}
+
+export interface GraphVisualizationData {
+  nodes: GraphNode[];
+  links: GraphLink[];
+}
+
+export async function getGraphStatus(): Promise<GraphStatus> {
+  const { data } = await api.get('/graph/status');
+  return data;
+}
+
+export async function migrateGraph(): Promise<{ status: string; stats: Record<string, unknown> }> {
+  const { data } = await api.post('/graph/migrate');
+  return data;
+}
+
+export async function getAcceleratorContext(name: string): Promise<Record<string, unknown>> {
+  const { data } = await api.get(`/graph/accelerator/${encodeURIComponent(name)}/context`);
+  return data;
+}
+
+export async function getAcceleratorSupplyRisks(name: string): Promise<{ accelerator: string; risks: Record<string, unknown>[]; count: number }> {
+  const { data } = await api.get(`/graph/accelerator/${encodeURIComponent(name)}/supply-risks`);
+  return data;
+}
+
+export async function getProcessFlowWithRisks(): Promise<{ steps: Record<string, unknown>[] }> {
+  const { data } = await api.get('/graph/process-flow');
+  return data;
+}
+
+export async function getEquipmentImpact(name: string): Promise<Record<string, unknown>> {
+  const { data } = await api.get(`/graph/equipment/${encodeURIComponent(name)}/impact`);
+  return data;
+}
+
+export async function getMaterialDependency(name: string): Promise<Record<string, unknown>> {
+  const { data } = await api.get(`/graph/material/${encodeURIComponent(name)}/dependency`);
+  return data;
+}
+
+export async function getCriticalSupplyRisks(): Promise<{ materials: Record<string, unknown>[]; count: number }> {
+  const { data } = await api.get('/graph/materials/critical-risks');
+  return data;
+}
+
+export async function findGraphPath(from: string, to: string): Promise<{ paths: Record<string, unknown>[]; count: number }> {
+  const { data } = await api.get('/graph/path', { params: { from, to } });
+  return data;
+}
+
+export async function getGraphVisualization(): Promise<GraphVisualizationData> {
+  const { data } = await api.get('/graph/visualization');
+  return data;
+}
+
+export async function runCypherQuery(cypher: string, params?: Record<string, unknown>): Promise<{ results: Record<string, unknown>[]; count: number }> {
+  const { data } = await api.post('/graph/query', { cypher, params });
+  return data;
+}
+
 export default api;

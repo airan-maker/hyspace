@@ -10,6 +10,11 @@ class Settings(BaseSettings):
     # Database
     database_url: str = "postgresql://postgres:postgres@localhost:5432/hyspace"
 
+    # Neo4j Graph Database
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_user: str = "neo4j"
+    neo4j_password: str = "hyspace2026"
+
     # CORS
     cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
 

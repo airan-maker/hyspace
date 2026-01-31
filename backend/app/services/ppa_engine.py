@@ -66,7 +66,38 @@ def _build_process_params() -> dict:
         ),
     }
 
-    # 온톨로지에서 추가 노드 확장
+    # 1차: Neo4j 그래프에서 로드 시도
+    try:
+        from app.neo4j_client import Neo4jClient
+        if Neo4jClient.is_available():
+            records = Neo4jClient.run_query(
+                "MATCH (n:ProcessNode) RETURN n.key AS key, n.node_nm AS node_nm, "
+                "n.logic_density_mtr_per_mm2 AS density, n.wafer_cost_usd AS wafer_cost"
+            )
+            if records:
+                for r in records:
+                    nm = r["node_nm"]
+                    nm_int = max(2, round(nm))
+                    if nm_int in base_params:
+                        continue
+                    scale = nm_int / 3.0
+                    base_params[nm_int] = ProcessParams(
+                        node_nm=nm_int,
+                        base_core_area=round(0.50 * scale, 3),
+                        gpu_core_area=round(0.15 * scale, 3),
+                        npu_core_area=round(0.20 * scale, 3),
+                        cache_density=round(0.35 * scale, 3),
+                        io_area_per_lane=round(0.25 * scale, 3),
+                        memory_ctrl_area=round(2.5 * scale, 2),
+                        power_density=round(0.45 / scale, 3),
+                        max_frequency_ghz=round(4.0 / (scale ** 0.3), 1),
+                        scaling_factor=round(scale, 2),
+                    )
+                return base_params
+    except Exception:
+        pass
+
+    # 2차: 인메모리 온톨로지에서 확장
     try:
         from app.ontology import SemiconductorOntology
         all_nodes = SemiconductorOntology.get_all_nodes()

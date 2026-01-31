@@ -153,7 +153,33 @@ class WorkloadAnalysisResult:
 
 # 경쟁사 스펙 데이터 - 온톨로지에서 동적 로드
 def _load_competitor_specs() -> dict:
-    """AI 산업 온톨로지에서 경쟁사 가속기 데이터 로드"""
+    """AI 산업 온톨로지에서 경쟁사 가속기 데이터 로드 (Neo4j → 온톨로지 → 하드코딩 순)"""
+    # 1차: Neo4j 그래프에서 로드
+    try:
+        from app.neo4j_client import Neo4jClient
+        if Neo4jClient.is_available():
+            records = Neo4jClient.run_query(
+                "MATCH (a:AIAccelerator) "
+                "RETURN a.name AS name, a.bf16_tflops AS bf16, a.int8_tops AS int8, "
+                "a.tdp_watts AS tdp, a.memory_bandwidth_tbps AS bw, "
+                "a.memory_capacity_gb AS mem, a.msrp_usd AS price"
+            )
+            if records:
+                specs = {}
+                for r in records:
+                    specs[r["name"]] = {
+                        "tops_fp16": (r["bf16"] or 0) * 2,
+                        "tops_int8": r["int8"],
+                        "power_w": r["tdp"],
+                        "bandwidth_tbps": r["bw"],
+                        "memory_gb": r["mem"],
+                        "price_estimate": r["price"] or 10000,
+                    }
+                return specs
+    except Exception:
+        pass
+
+    # 2차: 인메모리 온톨로지
     try:
         from app.ontology import AIIndustryOntology
         accelerators = AIIndustryOntology.get_all_accelerators()
@@ -189,7 +215,32 @@ COMPETITOR_SPECS = _load_competitor_specs()
 
 # 메모리 타입별 대역폭 (TB/s) - 온톨로지에서 HBM 스펙 참조
 def _load_memory_bandwidth() -> dict:
-    """HBM 온톨로지에서 대역폭 데이터 로드 (6-stack 기준 TB/s)"""
+    """HBM 대역폭 데이터 로드 (Neo4j → 온톨로지 → 하드코딩 순, 6-stack 기준 TB/s)"""
+    # 1차: Neo4j
+    try:
+        from app.neo4j_client import Neo4jClient
+        if Neo4jClient.is_available():
+            records = Neo4jClient.run_query(
+                "MATCH (h:HBMGeneration) "
+                "RETURN h.generation AS gen, h.bandwidth_per_stack_gbps AS bw"
+            )
+            if records:
+                hbm_map = {"HBM4": MemoryType.HBM4, "HBM3E": MemoryType.HBM3E, "HBM3": MemoryType.HBM3}
+                bw = {}
+                for r in records:
+                    mt = hbm_map.get(r["gen"])
+                    if mt:
+                        bw[mt] = round(r["bw"] * 6 / 1000, 2)
+                bw.setdefault(MemoryType.HBM4, 6.4)
+                bw.setdefault(MemoryType.HBM3E, 4.8)
+                bw.setdefault(MemoryType.HBM3, 3.2)
+                bw[MemoryType.GDDR6] = 1.0
+                bw[MemoryType.LPDDR5] = 0.128
+                return bw
+    except Exception:
+        pass
+
+    # 2차: 인메모리 온톨로지
     try:
         from app.ontology import AIIndustryOntology
         hbm_specs = AIIndustryOntology.get_all_hbm()

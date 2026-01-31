@@ -8,6 +8,7 @@ import YieldDashboardPage from './components/YieldDashboard';
 import { useSimulation } from './hooks/useSimulation';
 import { useWorkloadAnalysis } from './hooks/useWorkloadAnalysis';
 import { SeedDataWizard } from './components/SeedDataWizard';
+import { GraphExplorer } from './components/GraphExplorer';
 
 function PPAOptimizerPage() {
   const {
@@ -168,6 +169,8 @@ function App() {
         return <WorkloadAnalyzerPage />;
       case 'yield':
         return <YieldDashboardPage />;
+      case 'graph':
+        return <GraphExplorer />;
       case 'seed':
         return <SeedDataWizard />;
       case 'history':

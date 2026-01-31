@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from .config import get_settings
 from .database import engine, Base, SessionLocal
+from .neo4j_client import Neo4jClient
 from .api import api_router
 
 settings = get_settings()
@@ -35,8 +36,11 @@ async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
     # Initialize security defaults
     init_security_defaults()
+    # Connect Neo4j (graceful — app works without it)
+    Neo4jClient.connect()
     yield
-    # Shutdown: cleanup if needed
+    # Shutdown
+    Neo4jClient.close()
 
 
 app = FastAPI(
