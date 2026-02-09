@@ -1,0 +1,123 @@
+{
+  "nodes": [
+    {
+      "key": "REG_US_EXPORT_2022",
+      "label": "Regulation",
+      "name": "US Semiconductor Export Controls (Oct 2022)",
+      "properties": {
+        "jurisdiction": "United States",
+        "type": "EXPORT_CONTROL",
+        "effective_year": 2022,
+        "targets": [
+          "China"
+        ],
+        "agency": "BIS (Bureau of Industry and Security)",
+        "key_restrictions": [
+          "Advanced compute chips (>300 TOPS or >600 TFLOPS)",
+          "EUV equipment",
+          "Advanced packaging equipment"
+        ],
+        "description": "중국향 첨단 반도체/장비 수출 통제, A100+ 수준 AI 가속기 제한"
+      }
+    },
+    {
+      "key": "REG_US_EXPORT_2023",
+      "label": "Regulation",
+      "name": "US Export Controls Update (Oct 2023)",
+      "properties": {
+        "jurisdiction": "United States",
+        "type": "EXPORT_CONTROL",
+        "effective_year": 2023,
+        "key_changes": [
+          "Performance density threshold added",
+          "Broader country coverage",
+          "Cloud computing restrictions"
+        ],
+        "description": "2022년 규제 강화, H800/A800도 제한"
+      }
+    },
+    {
+      "key": "REG_CHIPS_ACT",
+      "label": "Regulation",
+      "name": "CHIPS and Science Act",
+      "properties": {
+        "jurisdiction": "United States",
+        "type": "SUBSIDY",
+        "effective_year": 2022,
+        "total_funding_b_usd": 52.7,
+        "manufacturing_incentives_b_usd": 39.0,
+        "rd_funding_b_usd": 13.2,
+        "recipients": [
+          "Intel ($8.5B)",
+          "TSMC ($6.6B)",
+          "Samsung ($6.4B)",
+          "Micron ($6.1B)"
+        ],
+        "description": "미국 내 반도체 제조/R&D 육성 법안"
+      }
+    },
+    {
+      "key": "REG_EU_CHIPS_ACT",
+      "label": "Regulation",
+      "name": "European Chips Act",
+      "properties": {
+        "jurisdiction": "European Union",
+        "type": "SUBSIDY",
+        "effective_year": 2023,
+        "total_funding_b_eur": 43.0,
+        "target_market_share_pct": 20,
+        "description": "EU 반도체 시장점유율 20% 목표, 생산/R&D 투자"
+      }
+    },
+    {
+      "key": "REG_JAPAN_EXPORT",
+      "label": "Regulation",
+      "name": "Japan Semiconductor Equipment Export Controls",
+      "properties": {
+        "jurisdiction": "Japan",
+        "type": "EXPORT_CONTROL",
+        "effective_year": 2023,
+        "affected_equipment": [
+          "EUV-related",
+          "Advanced deposition",
+          "Advanced lithography"
+        ],
+        "description": "일본, 미국과 협조하여 23종 장비 수출 규제 (중국향)"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "REG_US_EXPORT_2022",
+      "to_key": "VENDOR_ASML",
+      "type": "RESTRICTED_BY",
+      "properties": {
+        "impact": "EUV equipment to China banned"
+      }
+    },
+    {
+      "from_key": "REG_CHIPS_ACT",
+      "to_key": "TSMC_FAB_21",
+      "type": "SUBJECT_TO",
+      "properties": {
+        "funding_b_usd": 6.6
+      }
+    },
+    {
+      "from_key": "REG_CHIPS_ACT",
+      "to_key": "INTEL_FAB_52_62",
+      "type": "SUBJECT_TO",
+      "properties": {
+        "funding_b_usd": 8.5
+      }
+    },
+    {
+      "from_key": "REG_CHIPS_ACT",
+      "to_key": "SAMSUNG_TAYLOR",
+      "type": "SUBJECT_TO",
+      "properties": {
+        "funding_b_usd": 6.4
+      }
+    }
+  ]
+}

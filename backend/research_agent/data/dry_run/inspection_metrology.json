@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "key": "INSP_BROADBAND_PLASMA",
+      "label": "InspectionMethod",
+      "name": "Broadband Plasma Inspection",
+      "properties": {
+        "equipment_type": "Wafer Inspection",
+        "vendor": "KLA",
+        "model": "KLA 39xx series",
+        "resolution_nm": 15,
+        "throughput": "100+ WPH",
+        "detection_capability": "Random defects, pattern defects",
+        "description": "광대역 플라즈마 광원 기반 웨이퍼 검사, 인라인 표준"
+      }
+    },
+    {
+      "key": "INSP_EBEAM",
+      "label": "InspectionMethod",
+      "name": "E-beam Inspection",
+      "properties": {
+        "equipment_type": "Wafer Inspection",
+        "vendor": "KLA/Applied/Hermes",
+        "resolution_nm": 1,
+        "throughput": "1-5 WPH",
+        "detection_capability": "Sub-surface defects, voltage contrast",
+        "description": "전자빔 기반 고해상도 검사, 저속이지만 최고 해상도"
+      }
+    },
+    {
+      "key": "INSP_CD_SEM",
+      "label": "InspectionMethod",
+      "name": "CD-SEM (Critical Dimension SEM)",
+      "properties": {
+        "equipment_type": "Metrology",
+        "vendor": "Hitachi/KLA",
+        "resolution_nm": 0.5,
+        "measurement": "CD, Line Edge Roughness, Pattern Profile",
+        "description": "패턴 임계 치수 측정, 리소그래피 공정 모니터링"
+      }
+    },
+    {
+      "key": "INSP_OCD",
+      "label": "InspectionMethod",
+      "name": "OCD Scatterometry",
+      "properties": {
+        "equipment_type": "Metrology",
+        "vendor": "Nova/KLA",
+        "throughput": "60+ WPH",
+        "measurement": "Film thickness, CD, Profile, Overlay",
+        "description": "광학 산란 기반 비파괴 계측, 인라인 생산 모니터링"
+      }
+    },
+    {
+      "key": "INSP_OVERLAY",
+      "label": "InspectionMethod",
+      "name": "Overlay Metrology",
+      "properties": {
+        "equipment_type": "Metrology",
+        "vendor": "KLA/ASML",
+        "resolution_nm": 0.1,
+        "measurement": "Layer-to-layer alignment accuracy",
+        "description": "레이어 간 정렬 정밀도 측정, 다층 리소그래피 핵심"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "INSP_BROADBAND_PLASMA",
+      "to_key": "VENDOR_KLA",
+      "type": "INSPECTED_BY",
+      "properties": {}
+    },
+    {
+      "from_key": "INSP_CD_SEM",
+      "to_key": "VENDOR_KLA",
+      "type": "INSPECTED_BY",
+      "properties": {}
+    }
+  ]
+}

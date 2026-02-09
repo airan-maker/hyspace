@@ -565,7 +565,25 @@ class GraphMigrator:
         # 9. EquipmentFailure → Equipment (FAILURE_OF)
         edge_counts["FAILURE_OF"] = self._create_failure_equipment_edges()
 
+        # 10. ProcessNode → ProcessStep (HAS_PROCESS_STEP)
+        edge_counts["HAS_PROCESS_STEP"] = self._create_process_node_step_edges()
+
         return edge_counts
+
+    def _create_process_node_step_edges(self) -> int:
+        """
+        모든 선단 공정 ProcessNode를 ProcessStep에 연결합니다.
+        반도체 공정 단계(FEOL/MOL/BEOL)는 선단 공정 노드에 공통으로 적용됩니다.
+        """
+        result = Neo4jClient.run_query(
+            """
+            MATCH (pn:ProcessNode), (ps:ProcessStep)
+            WHERE pn.node_nm IS NOT NULL AND pn.node_nm <= 7
+            MERGE (pn)-[:HAS_PROCESS_STEP]->(ps)
+            RETURN count(*) as count
+            """
+        )
+        return result[0]["count"] if result else 0
 
     def _create_accelerator_process_edges(self) -> int:
         """

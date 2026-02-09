@@ -21,7 +21,7 @@ function SliderInput({ label, value, min, max, step = 1, unit = '', onChange }: 
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label className="text-sm font-medium text-gray-700">{label}</label>
+        <label className="text-sm font-medium text-gray-300">{label}</label>
         <span className="text-sm font-semibold text-nexus-600">
           {value}{unit}
         </span>
@@ -35,7 +35,7 @@ function SliderInput({ label, value, min, max, step = 1, unit = '', onChange }: 
         onChange={(e) => onChange(Number(e.target.value))}
         className="w-full"
       />
-      <div className="flex justify-between text-xs text-gray-400">
+      <div className="flex justify-between text-xs text-gray-500">
         <span>{min}{unit}</span>
         <span>{max}{unit}</span>
       </div>
@@ -57,7 +57,7 @@ export function ConfigPanel({ config, onConfigChange, onSimulate, isLoading }: C
       <div className="space-y-6">
         {/* Process Node Selection */}
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-2">Process Node</label>
+          <label className="text-sm font-medium text-gray-300 block mb-2">Process Node</label>
           <div className="grid grid-cols-3 gap-2">
             {[3, 5, 7].map((node) => (
               <button
@@ -66,7 +66,7 @@ export function ConfigPanel({ config, onConfigChange, onSimulate, isLoading }: C
                 className={`py-2 px-4 rounded-lg text-sm font-medium transition-colors ${
                   config.process_node_nm === node
                     ? 'bg-nexus-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
                 {node}nm

@@ -1,0 +1,38 @@
+[
+  {
+    "source": "Wikipedia - Electromigration",
+    "url": "https://en.wikipedia.org/wiki/Electromigration",
+    "content": "Electromigration is the transport of material caused by the gradual movement of the ions in a conductor due to the momentum transfer between conducting electrons and diffusing metal atoms.  The effect is important in applications where high direct current densities are used, such as in microelectronics and related structures. As the structure size in electronics such as integrated circuits (ICs) decreases, the practical significance of this effect increases.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - ESD",
+    "url": "https://en.wikipedia.org/wiki/Electrostatic_discharge",
+    "content": "Electrostatic discharge (ESD) is a sudden and momentary flow of electric current between two differently-charged objects when brought close together or when the dielectric between them breaks down, often creating a visible spark associated with the static electricity between the objects.\nESD can create spectacular electric sparks (lightning, with the accompanying sound of thunder, is an example of a large-scale ESD event), but also less dramatic forms, which may be neither seen nor heard, yet still be large enough to cause damage to sensitive electronic devices. Electric sparks require a field strength above approximately 4 million V/m in air, as notably occurs in lightning strikes. Similar forms of electric discharge include corona discharge from sharp electrodes, brush discharge from blunt electrodes, etc.\nESD can cause harmful effects of importance in industry, including explosions in gas, fuel vapor and coal dust, as well as failure of solid state electronics components such as integrated circuits. These can suffer permanent damage when subjected to high voltages. Electronics manufacturers therefore establish electrostatic protective areas free of static, using measures to prevent charging, such as avoiding highly charging materials and measures to remove static such as grounding human workers, providing antistatic devices, and controlling humidity.\nESD simulators may be used to test electronic devices, for example with a human body model or a charged device model.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia: Reliability (semiconductor)",
+    "url": "https://en.wikipedia.org/wiki/Reliability_%28semiconductor%29",
+    "content": "Reliability of a semiconductor device is the ability of the device to perform its intended function during the life of the device in the field. \nThere are multiple considerations that need to be accounted for when developing reliable semiconductor devices:\n\nSemiconductor devices are very sensitive to impurities and particles. Therefore, to manufacture these devices it is necessary to manage many processes while accurately controlling the level of impurities and particles. The finished product quality depends upon the many layered relationship of each interacting substance in the semiconductor, including metallization, chip material (list of semiconductor materials) and package.\nThe problems of micro-processes, and thin films and must be fully understood as they apply to metallization and wire bonding. It is also necessary to analyze surface phenomena from the aspect of thin films.\nDue to the rapid advances in technology, many new devices are developed using new materials and processes, and design calendar time is limited due to non-recurring engineering constraints, plus time to market concerns. Consequently, it is not possible to base new designs on the reliability of existing devices.\nTo achieve economy of scale, semiconductor products are manufactured in high volume. Furthermore, repair of finished semiconductor products is impractical. Therefore, incorporation of reliability at the design stage and reduction of variation in the production stage have become essential.\nReliability of semiconductor devices may depend on assembly, use, environmental, and cooling conditions. Stress factors affecting device reliability include gas, dust, contamination, voltage, current density, temperature, humidity, mechanical stress, vibration, shock, radiation, pressure, and intensity of magnetic and electrical fields.\nDesign factors affecting semiconductor reliability include: voltage, power, and current derating; metastability; logic timing margins (logic simulation); timing analysis; temperature derating; and process control.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Physics of failure",
+    "url": "https://en.wikipedia.org/wiki/Physics_of_failure",
+    "content": "Physics of failure is a technique under the practice of reliability design that leverages the knowledge and understanding of the processes and mechanisms that induce failure to predict reliability and improve product performance.\nOther definitions of Physics of Failure include:\n\nA science-based approach to reliability that uses modeling and simulation to design-in reliability. It helps to understand system performance and reduce decision risk during design and after the equipment is fielded. This approach models the root causes of failure such as fatigue, fracture, wear, and corrosion.\nAn approach to the design and development of reliable product to prevent failure, based on the knowledge of root cause failure mechanisms. The Physics of Failure (PoF) concept is based on the understanding of the relationships between requirements and the physical characteristics of the product and their variation in the manufacturing processes, and the reaction of product elements and materials to loads (stressors) and interaction under loads and their influence on the fitness for use with respect to the use conditions and time.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Hot-carrier injection",
+    "url": "https://en.wikipedia.org/wiki/Hot-carrier_injection",
+    "content": "Hot carrier injection (HCI) is a phenomenon in solid-state electronic devices where an electron or a \"hole\" gains sufficient kinetic energy to overcome a potential barrier necessary to break an interface state. The term \"hot\" refers to the effective temperature used to model carrier density,  not to the overall temperature of the device. Since the charge carriers can become trapped in the gate dielectric of a MOS transistor, the switching characteristics of the transistor can be permanently changed.  Hot-carrier injection is one of the mechanisms that adversely affects the reliability of semiconductors of solid-state devices.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Automotive Electronics Council",
+    "url": "https://en.wikipedia.org/wiki/Automotive_Electronics_Council",
+    "content": "The Automotive Electronics Council (AEC) is an organization originally established in the 1990s by Chrysler, Ford, and GM for the purpose of establishing common part-qualification and quality-system standards.\nThe AEC Component Technical Committee is the standardization body for establishing standards for reliable, high quality electronic components. Components meeting these specifications are suitable for use in the harsh automotive environment without additional component-level qualification testing. The technical documents developed by the AEC Component Technical Committee are available at the AEC web site.\nMost commonly referenced AEC documents are:\n\nAEC-Q100  \"Failure Mechanism Based Stress Test Qualification For Integrated Circuits\"\nAEC-Q101  \"Failure Mechanism Based Stress Test Qualification For Discrete Semiconductors\"\nAEC-Q200  \"Stress Test Qualification For Passive Components\"",
+    "type": "wikipedia_api"
+  }
+]

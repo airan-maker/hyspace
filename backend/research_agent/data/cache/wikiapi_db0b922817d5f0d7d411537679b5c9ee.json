@@ -1,0 +1,1 @@
+{"params": {"action": "query", "titles": "Advanced Micro Devices", "prop": "extracts", "exintro": "0", "explaintext": "1", "exsectionformat": "plain", "format": "json", "utf8": "1"}, "data": {"batchcomplete": "", "query": {"pages": {"72536161": {"pageid": 72536161, "ns": 0, "title": "Advanced Micro Devices", "extract": ""}}}}, "fetched_at": "2026-01-31T15:18:54.562336"}

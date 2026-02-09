@@ -1,0 +1,39 @@
+{
+  "nodes": [
+    {
+      "key": "STD_SEMI_E10",
+      "label": "Standard",
+      "name": "SEMI E10 (OEE)",
+      "properties": {
+        "org": "SEMI",
+        "version": "0718",
+        "year": 2018,
+        "scope": "Equipment reliability/utilization metrics (OEE)",
+        "description": "장비 종합 효율(OEE) 측정 표준"
+      }
+    },
+    {
+      "key": "STD_SEMI_E79",
+      "label": "Standard",
+      "name": "SEMI E79 (Overall Fab Efficiency)",
+      "properties": {
+        "org": "SEMI",
+        "scope": "Fab-level metrics",
+        "description": "팹 전체 효율 측정 표준"
+      }
+    },
+    {
+      "key": "STD_JEDEC_HBM",
+      "label": "Standard",
+      "name": "JEDEC JESD238 (HBM3)",
+      "properties": {
+        "org": "JEDEC",
+        "version": "JESD238",
+        "year": 2022,
+        "scope": "HBM3 interface specification",
+        "description": "HBM3 인터페이스 규격"
+      }
+    }
+  ],
+  "relationships": []
+}

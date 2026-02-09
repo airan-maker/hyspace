@@ -1,0 +1,513 @@
+{
+  "nodes": [
+    {
+      "key": "TSMC",
+      "label": "Foundry",
+      "name": "Taiwan Semiconductor Manufacturing Company",
+      "properties": {
+        "headquarters": "Hsinchu Science Park, Hsinchu, Taiwan",
+        "country": "Taiwan",
+        "founded": 1987,
+        "founder": "Morris Chang",
+        "market_position": "World's largest dedicated contract chipmaker",
+        "global_capacity_wspm": 13000000,
+        "wafer_size": "300mm",
+        "process_nodes": [
+          "N2",
+          "N3E",
+          "N5",
+          "N7"
+        ],
+        "customers": [
+          "Apple",
+          "Nvidia",
+          "AMD",
+          "Broadcom",
+          "Qualcomr",
+          "MediaTek"
+        ],
+        "stock_exchanges": [
+          "Taiwan Stock Exchange",
+          "New York Stock Exchange"
+        ],
+        "cagr_revenue": 17.4,
+        "cagr_earnings": 16.1,
+        "confidence": 0.79,
+        "source_date": "2020",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964674"
+      }
+    },
+    {
+      "key": "SAMSUNG",
+      "label": "Foundry",
+      "name": "Samsung Electronics Co., Ltd.",
+      "properties": {
+        "headquarters": "Yeongtong District, Suwon, South Korea",
+        "country": "South Korea",
+        "founded": "1969-01-13",
+        "market_position": "World's fourth-largest technology company by revenue",
+        "market_cap_usd": 520650000000,
+        "employee_count": 260000,
+        "assembly_plants_countries": 76,
+        "business_areas": [
+          "smartphones",
+          "semiconductors",
+          "displays",
+          "memory",
+          "televisions"
+        ],
+        "confidence": 0.76,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964717"
+      }
+    },
+    {
+      "key": "INTEL",
+      "label": "Foundry",
+      "name": "Intel Corporation",
+      "properties": {
+        "headquarters": "Santa Clara, California, USA",
+        "country": "United States",
+        "founded": "1968-07-18",
+        "founders": [
+          "Gordon Moore",
+          "Robert Noyce",
+          "Arthur Rock"
+        ],
+        "market_position": "World's third-largest semiconductor chip manufacturer by revenue",
+        "business_model": "IDM",
+        "primary_products": [
+          "CPUs",
+          "x86 instruction sets",
+          "chipsets",
+          "GPUs",
+          "flash memory"
+        ],
+        "manufacturing_percentage_usa": 75,
+        "confidence": 0.76,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964738"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES",
+      "label": "Foundry",
+      "name": "GlobalFoundries Inc.",
+      "properties": {
+        "headquarters": "Malta, New York, USA",
+        "country": "United States",
+        "domicile": "Cayman Islands",
+        "founded": "2009-03",
+        "origin": "AMD manufacturing arm divestiture",
+        "market_position": "Third-largest semiconductor foundry by revenue",
+        "majority_owner": "Mubadala Investment Company",
+        "ownership_stake": 82,
+        "ipo_date": "2021-10-28",
+        "ipo_price_usd": 47,
+        "ipo_raised_usd": 2600000000,
+        "trusted_foundry_certifications": [
+          "US federal government",
+          "Singapore",
+          "Germany"
+        ],
+        "confidence": 0.76,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964752"
+      }
+    },
+    {
+      "key": "SMIC",
+      "label": "Foundry",
+      "name": "Semiconductor Manufacturing International Corporation",
+      "properties": {
+        "headquarters": "Shanghai, China",
+        "country": "China",
+        "domicile": "Cayman Islands",
+        "market_position": "Largest contract chip maker in mainland China",
+        "market_position_global": "World's third largest contract chip maker",
+        "ownership": "partially state-owned",
+        "process_nodes": [
+          "350nm",
+          "7nm",
+          "5nm_planned"
+        ],
+        "major_shareholders": [
+          "Datang Telecom Group",
+          "China Integrated Circuit Industry Investment Fund"
+        ],
+        "customers": [
+          "Huawei",
+          "Qualcomm",
+          "Broadcom",
+          "Texas Instruments"
+        ],
+        "offices": [
+          "United States",
+          "Italy",
+          "Japan",
+          "Taiwan",
+          "Hong Kong"
+        ],
+        "confidence": 0.73,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964767"
+      }
+    },
+    {
+      "key": "UMC",
+      "label": "Foundry",
+      "name": "United Microelectronics Corporation",
+      "properties": {
+        "headquarters": "Hsinchu, Taiwan",
+        "country": "Taiwan",
+        "founded": 1980,
+        "origin": "ITRI spin-off",
+        "significance": "Taiwan's first semiconductor company",
+        "confidence": 0.7,
+        "source_date": "1980",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964780"
+      }
+    },
+    {
+      "key": "TOWER_SEMICONDUCTOR",
+      "label": "Foundry",
+      "name": "Tower Semiconductor Ltd.",
+      "properties": {
+        "headquarters": "Israel",
+        "country": "Israel",
+        "specialty_processes": [
+          "SiGe",
+          "BiCMOS",
+          "Silicon Photonics",
+          "SOI",
+          "mixed-signal",
+          "RFCMOS",
+          "CMOS image sensors",
+          "power management",
+          "non-volatile memory",
+          "MEMS"
+        ],
+        "joint_ventures": [
+          "TPSCo (51% ownership with Nuvoton Technology Corporation Japan)"
+        ],
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964794"
+      }
+    },
+    {
+      "key": "SAMSUNG_GIHEUNG",
+      "label": "FabSite",
+      "name": "Samsung Giheung Fab",
+      "properties": {
+        "location": "Giheung, South Korea",
+        "wafer_sizes": [
+          "200mm",
+          "300mm"
+        ],
+        "lines": [
+          "6 Line (200mm)",
+          "S1 Line (300mm)"
+        ],
+        "process_nodes": [
+          "Matured"
+        ],
+        "products": [
+          "Sensors",
+          "Power IC",
+          "Discrete",
+          "eFlash",
+          "Logic",
+          "Smart Mobile Platform",
+          "High Performance Computing",
+          "Datacenter Platform",
+          "Automotive Electronics",
+          "IoT Platform"
+        ],
+        "status": "ACTIVE",
+        "confidence": 0.7,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964805"
+      }
+    },
+    {
+      "key": "SAMSUNG_HWASEONG",
+      "label": "FabSite",
+      "name": "Samsung Hwaseong Fab",
+      "properties": {
+        "location": "Hwaseong, South Korea",
+        "status": "ACTIVE",
+        "confidence": 0.67,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964813"
+      }
+    },
+    {
+      "key": "SAMSUNG_PYEONGTAEK",
+      "label": "FabSite",
+      "name": "Samsung Pyeongtaek Fab",
+      "properties": {
+        "location": "Pyeongtaek, South Korea",
+        "status": "ACTIVE",
+        "confidence": 0.67,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964821"
+      }
+    },
+    {
+      "key": "SAMSUNG_AUSTIN",
+      "label": "FabSite",
+      "name": "Samsung Austin Fab",
+      "properties": {
+        "location": "Austin, Texas, USA",
+        "status": "ACTIVE",
+        "confidence": 0.67,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964829"
+      }
+    },
+    {
+      "key": "SAMSUNG_TAYLOR",
+      "label": "FabSite",
+      "name": "Samsung Taylor Fab",
+      "properties": {
+        "location": "Taylor, Texas, USA",
+        "status": "ACTIVE",
+        "confidence": 0.67,
+        "source_date": "2024",
+        "freshness_score": 0.75,
+        "_quality_scored_at": "2026-02-01T05:19:12.964837"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES_SINGAPORE_200MM",
+      "label": "FabSite",
+      "name": "GlobalFoundries Singapore 200mm Fab",
+      "properties": {
+        "location": "Singapore",
+        "wafer_size": "200mm",
+        "status": "ACTIVE",
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964845"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES_SINGAPORE_300MM",
+      "label": "FabSite",
+      "name": "GlobalFoundries Singapore 300mm Fab",
+      "properties": {
+        "location": "Singapore",
+        "wafer_size": "300mm",
+        "status": "ACTIVE",
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964853"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES_DRESDEN",
+      "label": "FabSite",
+      "name": "GlobalFoundries Dresden Fab",
+      "properties": {
+        "location": "Dresden, Germany",
+        "wafer_size": "300mm",
+        "status": "ACTIVE",
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964862"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES_ESSEX_JUNCTION",
+      "label": "FabSite",
+      "name": "GlobalFoundries Essex Junction Fab",
+      "properties": {
+        "location": "Essex Junction, Vermont, USA",
+        "wafer_size": "200mm",
+        "employer_status": "largest private employer in area",
+        "status": "ACTIVE",
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964869"
+      }
+    },
+    {
+      "key": "GLOBALFOUNDRIES_MALTA",
+      "label": "FabSite",
+      "name": "GlobalFoundries Malta Fab",
+      "properties": {
+        "location": "Malta, New York, USA",
+        "wafer_size": "300mm",
+        "status": "ACTIVE",
+        "confidence": 0.73,
+        "source_date": "2023",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964877"
+      }
+    },
+    {
+      "key": "TSMC_FAB15",
+      "label": "FabSite",
+      "name": "TSMC Fab 15",
+      "properties": {
+        "location": "Taiwan",
+        "investment_usd": 9300000000,
+        "status": "ACTIVE",
+        "confidence": 0.76,
+        "source_date": "2020",
+        "freshness_score": 0.9,
+        "_quality_scored_at": "2026-02-01T05:19:12.964885"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "SAMSUNG",
+      "to_key": "SAMSUNG_GIHEUNG",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "SAMSUNG",
+      "to_key": "SAMSUNG_HWASEONG",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "SAMSUNG",
+      "to_key": "SAMSUNG_PYEONGTAEK",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "SAMSUNG",
+      "to_key": "SAMSUNG_AUSTIN",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "SAMSUNG",
+      "to_key": "SAMSUNG_TAYLOR",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "GLOBALFOUNDRIES",
+      "to_key": "GLOBALFOUNDRIES_SINGAPORE_200MM",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "GLOBALFOUNDRIES",
+      "to_key": "GLOBALFOUNDRIES_SINGAPORE_300MM",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "GLOBALFOUNDRIES",
+      "to_key": "GLOBALFOUNDRIES_DRESDEN",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "GLOBALFOUNDRIES",
+      "to_key": "GLOBALFOUNDRIES_ESSEX_JUNCTION",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "GLOBALFOUNDRIES",
+      "to_key": "GLOBALFOUNDRIES_MALTA",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "TSMC",
+      "to_key": "TSMC_FAB15",
+      "type": "OPERATES_FAB",
+      "properties": {}
+    },
+    {
+      "from_key": "TSMC_FAB15",
+      "to_key": "N5",
+      "type": "PRODUCES_ON",
+      "properties": {}
+    },
+    {
+      "from_key": "TSMC_FAB15",
+      "to_key": "N7",
+      "type": "PRODUCES_ON",
+      "properties": {}
+    },
+    {
+      "from_key": "SAMSUNG_GIHEUNG",
+      "to_key": "N7",
+      "type": "PRODUCES_ON",
+      "properties": {}
+    },
+    {
+      "from_key": "TSMC_FAB15",
+      "to_key": "N3E",
+      "type": "PRODUCES_ON",
+      "properties": {
+        "node_type": "3nm_enhanced",
+        "technology": "EUV"
+      }
+    },
+    {
+      "from_key": "TSMC_FAB15",
+      "to_key": "N4P",
+      "type": "PRODUCES_ON",
+      "properties": {
+        "node_type": "4nm_performance",
+        "technology": "EUV"
+      }
+    },
+    {
+      "from_key": "SAMSUNG_HWASEONG",
+      "to_key": "SF3",
+      "type": "PRODUCES_ON",
+      "properties": {
+        "node_type": "3nm_GAA",
+        "technology": "EUV"
+      }
+    },
+    {
+      "from_key": "SAMSUNG_HWASEONG",
+      "to_key": "SF2",
+      "type": "PRODUCES_ON",
+      "properties": {
+        "node_type": "2nm_GAA",
+        "technology": "EUV"
+      }
+    },
+    {
+      "from_key": "SAMSUNG_AUSTIN",
+      "to_key": "SF3",
+      "type": "PRODUCES_ON",
+      "properties": {
+        "node_type": "3nm_GAA",
+        "technology": "EUV"
+      }
+    }
+  ],
+  "_validation_warnings": [
+    "4 orphan nodes (no relationships): ['INTEL', 'SMIC', 'UMC', 'TOWER_SEMICONDUCTOR']"
+  ]
+}

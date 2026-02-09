@@ -207,8 +207,8 @@ class YieldAnalyzer:
         """이벤트에 연결된 웨이퍼 조회"""
         from app.models.yield_event import YieldEventWafer
 
-        wafer_ids = self.db.query(YieldEventWafer.wafer_record_id).filter(
-            YieldEventWafer.yield_event_id == event_id
+        wafer_ids = self.db.query(YieldEventWafer.wafer_id).filter(
+            YieldEventWafer.event_id == event_id
         ).all()
 
         if not wafer_ids:

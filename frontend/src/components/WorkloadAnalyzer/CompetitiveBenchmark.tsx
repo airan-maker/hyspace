@@ -35,7 +35,7 @@ function MetricCell({ value, best, format = 'number' }: {
   };
 
   return (
-    <td className={`px-4 py-3 text-sm text-right ${best ? 'font-bold text-nexus-600' : 'text-gray-700'}`}>
+    <td className={`px-4 py-3 text-sm text-right ${best ? 'font-bold text-nexus-400' : 'text-gray-300'}`}>
       {formatValue()}
       {best && <span className="ml-1 text-green-500">*</span>}
     </td>
@@ -99,34 +99,34 @@ export function CompetitiveBenchmark({
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="bg-gray-50">
-              <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            <tr className="bg-[#1E2433]">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Product
               </th>
-              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 TOPS
               </th>
-              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Power
               </th>
-              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Efficiency
               </th>
-              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Bandwidth
               </th>
-              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 Est. Price
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-700">
             {allProducts.map((product, i) => (
               <tr
                 key={i}
-                className={product.isOurs ? 'bg-nexus-50' : (i % 2 === 0 ? 'bg-white' : 'bg-gray-50')}
+                className={product.isOurs ? 'bg-nexus-900/20' : (i % 2 === 0 ? 'bg-transparent' : 'bg-[#1E2433]/20')}
               >
-                <td className={`px-4 py-3 text-sm font-medium ${product.isOurs ? 'text-nexus-700' : 'text-gray-900'}`}>
+                <td className={`px-4 py-3 text-sm font-medium ${product.isOurs ? 'text-nexus-400' : 'text-gray-100'}`}>
                   {product.name}
                   {product.isOurs && (
                     <span className="ml-2 px-2 py-0.5 bg-nexus-600 text-white text-xs rounded-full">
@@ -144,13 +144,13 @@ export function CompetitiveBenchmark({
                   format="watts"
                 />
                 <td className={`px-4 py-3 text-sm text-right ${
-                  product.efficiency === bestEfficiency ? 'font-bold text-nexus-600' : 'text-gray-700'
+                  product.efficiency === bestEfficiency ? 'font-bold text-nexus-400' : 'text-gray-300'
                 }`}>
                   {product.efficiency.toFixed(1)} T/W
                   {product.efficiency === bestEfficiency && <span className="ml-1 text-green-500">*</span>}
                 </td>
                 <td className={`px-4 py-3 text-sm text-right ${
-                  !product.isOurs && product.memory_bandwidth_tbps === bestBandwidth ? 'font-bold text-nexus-600' : 'text-gray-700'
+                  !product.isOurs && product.memory_bandwidth_tbps === bestBandwidth ? 'font-bold text-nexus-400' : 'text-gray-300'
                 }`}>
                   {product.isOurs ? '-' : `${product.memory_bandwidth_tbps.toFixed(1)} TB/s`}
                   {!product.isOurs && product.memory_bandwidth_tbps === bestBandwidth && <span className="ml-1 text-green-500">*</span>}
@@ -166,27 +166,27 @@ export function CompetitiveBenchmark({
         </table>
       </div>
 
-      <div className="mt-4 text-xs text-gray-500">
+      <div className="mt-4 text-xs text-gray-400">
         <span className="text-green-500">*</span> Best in category. Competitor data from public specifications.
       </div>
 
       {/* Summary Comparison */}
       {ourTops && ourPower && ourPrice && (
         <div className="mt-4 grid grid-cols-3 gap-4">
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-500 mb-1">vs H100 (Performance)</p>
+          <div className="p-3 bg-[#1E2433] rounded-lg">
+            <p className="text-xs text-gray-400 mb-1">vs H100 (Performance)</p>
             <p className={`text-lg font-bold ${ourTops / 3958 >= 1 ? 'text-green-600' : 'text-yellow-600'}`}>
               {((ourTops / 3958) * 100).toFixed(0)}%
             </p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-500 mb-1">vs H100 (Efficiency)</p>
+          <div className="p-3 bg-[#1E2433] rounded-lg">
+            <p className="text-xs text-gray-400 mb-1">vs H100 (Efficiency)</p>
             <p className={`text-lg font-bold ${(ourTops/ourPower) / 5.65 >= 1 ? 'text-green-600' : 'text-yellow-600'}`}>
               {(((ourTops/ourPower) / 5.65) * 100).toFixed(0)}%
             </p>
           </div>
-          <div className="p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-500 mb-1">vs H100 (Cost)</p>
+          <div className="p-3 bg-[#1E2433] rounded-lg">
+            <p className="text-xs text-gray-400 mb-1">vs H100 (Cost)</p>
             <p className="text-lg font-bold text-green-600">
               {((ourPrice / 30000) * 100).toFixed(1)}%
             </p>

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import {
   getGraphStatus,
   migrateGraph,
@@ -14,6 +14,7 @@ import {
   type GraphStatus,
   type GraphVisualizationData,
 } from '../services/api';
+import type { GraphNode, GraphViewMode } from '../types/graph';
 
 export interface PresetQuery {
   id: string;
@@ -30,6 +31,8 @@ export function useGraphExplorer() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMigrating, setIsMigrating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<GraphViewMode>('results');
+  const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
 
   const fetchStatus = useCallback(async () => {
     try {
@@ -40,12 +43,22 @@ export function useGraphExplorer() {
     }
   }, []);
 
+  const fetchVisualization = useCallback(async () => {
+    try {
+      const data = await getGraphVisualization();
+      setVizData(data);
+    } catch {
+      // silent - viz is optional
+    }
+  }, []);
+
   const runMigration = useCallback(async () => {
     setIsMigrating(true);
     setError(null);
     try {
       const result = await migrateGraph();
       await fetchStatus();
+      await fetchVisualization();
       return result;
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Migration failed';
@@ -54,19 +67,7 @@ export function useGraphExplorer() {
     } finally {
       setIsMigrating(false);
     }
-  }, [fetchStatus]);
-
-  const fetchVisualization = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const data = await getGraphVisualization();
-      setVizData(data);
-    } catch {
-      setError('Failed to load graph visualization');
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+  }, [fetchStatus, fetchVisualization]);
 
   const executePreset = useCallback(async (presetId: string) => {
     setIsLoading(true);
@@ -79,27 +80,76 @@ export function useGraphExplorer() {
         case 'h100_context':
           result = await getAcceleratorContext('H100');
           break;
-        case 'h100_supply_risks':
-          result = await getAcceleratorSupplyRisks('H100');
+        case 'h100_supply_risks': {
+          const sr1 = await getAcceleratorSupplyRisks('H100');
+          result = sr1.risks;
           break;
-        case 'b200_supply_risks':
-          result = await getAcceleratorSupplyRisks('B200');
+        }
+        case 'b200_supply_risks': {
+          const sr2 = await getAcceleratorSupplyRisks('B200');
+          result = sr2.risks;
           break;
-        case 'process_flow':
-          result = await getProcessFlowWithRisks();
+        }
+        case 'process_flow': {
+          const pf = await getProcessFlowWithRisks();
+          result = pf.steps;
           break;
+        }
         case 'euv_impact':
           result = await getEquipmentImpact('ASML');
           break;
         case 'euv_resist_dep':
           result = await getMaterialDependency('EUV');
           break;
-        case 'critical_materials':
-          result = await getCriticalSupplyRisks();
+        case 'critical_materials': {
+          const cm = await getCriticalSupplyRisks();
+          result = cm.materials;
           break;
-        case 'h100_to_euv':
-          result = await findGraphPath('H100', 'EUV Photoresist');
+        }
+        case 'h100_to_euv': {
+          const fp = await findGraphPath('H100', 'EUV Photoresist');
+          result = fp.paths;
           break;
+        }
+        default:
+          break;
+      }
+      setQueryResult(result);
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : 'Query failed';
+      setError(msg);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const executeTemplate = useCallback(async (templateId: string, params: Record<string, string>) => {
+    setIsLoading(true);
+    setError(null);
+    setSelectedQuery(templateId);
+    setQueryResult(null);
+    try {
+      let result: unknown;
+      switch (templateId) {
+        case 'accelerator_risk': {
+          const sr = await getAcceleratorSupplyRisks(params.accelerator);
+          result = sr.risks;
+          break;
+        }
+        case 'accelerator_context':
+          result = await getAcceleratorContext(params.accelerator);
+          break;
+        case 'equipment_impact':
+          result = await getEquipmentImpact(params.vendor);
+          break;
+        case 'material_dependency':
+          result = await getMaterialDependency(params.material);
+          break;
+        case 'entity_path': {
+          const fp = await findGraphPath(params.from, params.to);
+          result = fp.paths;
+          break;
+        }
         default:
           break;
       }
@@ -118,8 +168,8 @@ export function useGraphExplorer() {
     setSelectedQuery('custom');
     setQueryResult(null);
     try {
-      const result = await runCypherQuery(cypher);
-      setQueryResult(result);
+      const resp = await runCypherQuery(cypher);
+      setQueryResult(resp.results);
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Query failed';
       setError(msg);
@@ -127,6 +177,25 @@ export function useGraphExplorer() {
       setIsLoading(false);
     }
   }, []);
+
+  // 선택된 노드의 이웃 계산 (NodeDetailPanel용)
+  const nodeSelection = useMemo(() => {
+    if (!selectedNode || !vizData) {
+      return { neighbors: new Set<number>(), links: new Set<string>() };
+    }
+    const neighbors = new Set<number>();
+    const linkKeys = new Set<string>();
+    for (const link of vizData.links) {
+      const src = typeof link.source === 'object' ? (link.source as any).id : link.source;
+      const tgt = typeof link.target === 'object' ? (link.target as any).id : link.target;
+      if (src === selectedNode.id || tgt === selectedNode.id) {
+        neighbors.add(src);
+        neighbors.add(tgt);
+        linkKeys.add(`${src}-${tgt}`);
+      }
+    }
+    return { neighbors, links: linkKeys };
+  }, [selectedNode, vizData]);
 
   const presets: PresetQuery[] = [
     { id: 'h100_context', label: 'H100 전체 컨텍스트', description: '공정, 메모리, 패키징, 호환 모델 (1-hop)', execute: () => executePreset('h100_context') },
@@ -147,11 +216,17 @@ export function useGraphExplorer() {
     isLoading,
     isMigrating,
     error,
+    viewMode,
+    setViewMode,
+    selectedNode,
+    setSelectedNode,
+    nodeSelection,
     presets,
     fetchStatus,
     runMigration,
     fetchVisualization,
     executePreset,
+    executeTemplate,
     executeCypher,
   };
 }

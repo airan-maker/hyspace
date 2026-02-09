@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "key": "TEST_HTOL",
+      "label": "ReliabilityTest",
+      "name": "HTOL (High Temperature Operating Life)",
+      "properties": {
+        "standard": "JEDEC JESD22-A108",
+        "type": "HTOL",
+        "duration_hours": 1000,
+        "temperature_c": 125,
+        "voltage": "Vmax",
+        "description": "고온 동작 수명 시험, 반도체 신뢰성 기본 시험"
+      }
+    },
+    {
+      "key": "TEST_TC",
+      "label": "ReliabilityTest",
+      "name": "Temperature Cycling",
+      "properties": {
+        "standard": "JEDEC JESD22-A104",
+        "type": "TC",
+        "cycles": 1000,
+        "temp_range": "-65°C to +150°C",
+        "description": "온도 변화에 의한 기계적 스트레스 시험"
+      }
+    },
+    {
+      "key": "TEST_ESD_HBM",
+      "label": "ReliabilityTest",
+      "name": "ESD-HBM (Human Body Model)",
+      "properties": {
+        "standard": "JEDEC JS-001",
+        "type": "ESD",
+        "pass_voltage_v": 2000,
+        "description": "정전기 방전 내성 시험 (인체 모델)"
+      }
+    },
+    {
+      "key": "TEST_ESD_CDM",
+      "label": "ReliabilityTest",
+      "name": "ESD-CDM (Charged Device Model)",
+      "properties": {
+        "standard": "JEDEC JS-002",
+        "type": "ESD",
+        "pass_voltage_v": 500,
+        "description": "충전된 소자 모델 ESD 시험"
+      }
+    },
+    {
+      "key": "TEST_EM",
+      "label": "ReliabilityTest",
+      "name": "Electromigration (EM)",
+      "properties": {
+        "standard": "JEDEC JEP154",
+        "type": "EM",
+        "temperature_c": 300,
+        "stress_current_density": "1-10 MA/cm²",
+        "description": "배선의 전류 밀도에 의한 원자 이동 시험"
+      }
+    },
+    {
+      "key": "TEST_TDDB",
+      "label": "ReliabilityTest",
+      "name": "TDDB (Time Dependent Dielectric Breakdown)",
+      "properties": {
+        "standard": "JEDEC JEP122",
+        "type": "TDDB",
+        "description": "게이트 산화막 시간 의존 절연 파괴 시험"
+      }
+    },
+    {
+      "key": "TEST_AECQ100",
+      "label": "ReliabilityTest",
+      "name": "AEC-Q100 (Automotive Qualification)",
+      "properties": {
+        "standard": "AEC-Q100",
+        "type": "AUTOMOTIVE",
+        "grades": [
+          "Grade 0: -40~150°C",
+          "Grade 1: -40~125°C",
+          "Grade 2: -40~105°C",
+          "Grade 3: -40~85°C"
+        ],
+        "description": "차량용 반도체 신뢰성 인증 표준"
+      }
+    }
+  ],
+  "relationships": []
+}

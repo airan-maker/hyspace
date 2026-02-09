@@ -1,0 +1,62 @@
+[
+  {
+    "source": "Wikipedia - ARM",
+    "url": "https://en.wikipedia.org/wiki/Arm_Holdings",
+    "content": "Arm Holdings plc (formerly an acronym for Advanced RISC Machines and originally Acorn RISC Machine) is a British semiconductor and software design company based in Cambridge, England, whose primary business is the design of central processing unit (CPU) cores that implement the ARM architecture family of instruction sets. It also designs other chips, provides software development tools under the DS-5, RealView and Keil brands, and provides systems and platforms, system-on-chip (SoC) infrastructure and software. As a \"holding\" company, it also holds shares of other companies. Since 2016, it has been majority owned by Japanese conglomerate SoftBank Group.\nWhile ARM CPUs first appeared in the Acorn Archimedes, a desktop computer, today's systems include mostly embedded systems, including ARM CPUs used in virtually all modern smartphones. Processors based on designs licensed from Arm, or designed by licensees of one of the ARM instruction set architectures, are used in all classes of computing devices. Arm has two lines of graphics processing units (GPUs), Mali, and the newer Immortalis (which includes hardware-based ray-tracing).\nArm's main CPU competitors in servers include IBM, Intel and AMD. Intel competed with ARM-based chips in mobile devices but Arm no longer has any competition in that space (although vendors of actual ARM-based chips compete within that arena). Arm's main GPU competitors include mobile GPUs from technology companies Imagination Technologies (PowerVR), Qualcomm (Adreno), and increasingly Nvidia, AMD, Samsung and Intel. While competing in GPUs, Qualcomm, Samsung and Nvidia all have combined their GPUs with Arm-licensed CPUs.\nArm had a primary listing on the London Stock Exchange (LSE) and was a constituent of the FTSE 100 Index. It also had a secondary listing of American depositary receipts on New York's Nasdaq. However, Japanese multinational conglomerate SoftBank Group made an agreed offer for Arm on 18 July 2016, subject to approval by Arm's shareholders, valuing the company at £24.3 billion. The transaction was completed on 5 September 2016. A planned takeover deal by Nvidia, announced in 2020, collapsed in February 2022, with SoftBank subsequently deciding to pursue an initial public offering on the Nasdaq in 2023, valuing Arm at US$54.5 billion.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - RISC-V",
+    "url": "https://en.wikipedia.org/wiki/RISC-V",
+    "content": "RISC-V (pronounced \"risk-five\") is a free and open standard instruction set architecture (ISA) based on reduced instruction set computer (RISC) principles. Unlike proprietary ISAs such as x86 and ARM, RISC-V is described as \"free and open\" because its specifications are released under permissive open-source licenses and can be implemented without paying royalties.\nRISC-V was developed in 2010 at the University of California, Berkeley as the fifth generation of RISC processors created at the university since 1981. In 2015, development and maintenance of the standard was transferred to RISC-V International, a non-profit organization based in Switzerland with more than 4,500 members as of 2025.\nRISC-V is a popular architecture for microcontrollers and embedded systems, with development of higher-performance implementations targeting mobile, desktop, and server markets ongoing. The ISA is supported by several major Linux distributions, and companies such as SiFive, Andes Technology, SpacemiT, Synopsys, Alibaba (DAMO Academy), StarFive, Espressif Systems, and Raspberry Pi offer commercial systems on a chip (SoCs) and microcontrollers (MCUs) that incorporate one or more RISC-V compatible processor cores.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - Synopsys",
+    "url": "https://en.wikipedia.org/wiki/Synopsys",
+    "content": "Synopsys, Inc. is an American multinational electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on design and verification of silicon chips, electronic system-level design and verification, and reusable components (intellectual property). Synopsys supplies tools and services to the semiconductor design and manufacturing industry. Products include tools for implementation of digital and analog circuits, simulators, and debugging environments that assist in the design of chips and computer systems. In 2024, Synopsys was listed as the 12th largest software company in the world.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - Cadence",
+    "url": "https://en.wikipedia.org/wiki/Cadence_Design_Systems",
+    "content": "Cadence Design Systems, Inc. (stylized as cādence) is an American multinational technology and computational software company headquartered in San Jose, California.  Initially specialized in electronic design automation (EDA) software for the semiconductor industry, currently the company makes software and hardware for designing products such as integrated circuits, systems on chips (SoCs), printed circuit boards, and pharmaceutical drugs, also licensing intellectual property for the electronics, aerospace, defense and automotive industries.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - EDA",
+    "url": "https://en.wikipedia.org/wiki/Electronic_design_automation",
+    "content": "Electronic design automation (EDA), also referred to as electronic computer-aided design (ECAD), is a category of software tools for designing electronic systems such as integrated circuits and printed circuit boards. The tools work together in a design flow that chip designers use to design and analyze entire semiconductor chips. Since a modern semiconductor chip can have billions of components, EDA tools are essential for their design. A complete set of technologies are integrated in EDA tools, which have been expanded to software, hardware and design methodologies (such as through design services),  this article in particular describes EDA specifically with respect to integrated circuits (ICs).\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia: ARM architecture family",
+    "url": "https://en.wikipedia.org/wiki/ARM_architecture_family",
+    "content": "ARM (stylised in lowercase as arm) is a family of RISC instruction set architectures for computer processors. Arm Holdings develops the instruction set architecture and licenses them to other companies, who build the physical devices that use the instruction set. It also designs and licenses cores that implement these instruction set architectures.\nDue to their low costs, low power consumption, and low heat generation, ARM processors are useful for light, portable, battery-powered devices, including smartphones, laptops, and tablet computers, as well as embedded systems. However, ARM processors are also used for desktops and servers, including Fugaku, the world's fastest supercomputer from 2020 to 2022. With over 230 billion ARM chips  produced, since at least 2003, and with its dominance increasing every year, ARM is the most widely used family of instruction set architectures.\nThere have been several generations of the ARM design. The original ARM1 used a 32-bit internal structure but had a 26-bit address space that limited it to 64 MB of main memory. This limitation was removed in the ARMv3 series, which has a 32-bit address space, and several additional generations up to ARMv7 remained 32-bit. Released in 2011, the ARMv8-A architecture added support for a 64-bit address space and 64-bit arithmetic with its new 32-bit fixed-length instruction set. Arm Holdings has also released a series of additional instruction sets for different roles: the \"Thumb\" extensions add both 32- and 16-bit instructions for improved code density, while Jazelle added instructions for directly handling Java bytecode. More recent changes include the addition of simultaneous multithreading (SMT) for improved performance or fault tolerance.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Mali (processor)",
+    "url": "https://en.wikipedia.org/wiki/Mali_%28processor%29",
+    "content": "The Mali and Immortalis series of graphics processing units (GPUs) and multimedia processors are semiconductor intellectual property cores produced by Arm Holdings for licensing in various ASIC designs by Arm partners.\nMali GPUs were developed by Falanx Microsystems A/S, which was a spin-off of a research project from the Norwegian University of Science and Technology. Arm Holdings acquired Falanx Microsystems A/S on June 23, 2006 and renamed the company to Arm Norway.\nIt was originally named Malaik, but the team shortened the name to Mali, Serbo-Croatian for \"small\", which was thought to be fitting for a mobile GPU.\nOn June 28, 2022, Arm announced their Immortalis series of GPUs with hardware-based Ray Tracing support.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: ARM Cortex-A7",
+    "url": "https://en.wikipedia.org/wiki/ARM_Cortex-A7",
+    "content": "The ARM Cortex-A7 MPCore is a 32-bit microprocessor core licensed by ARM Holdings implementing the ARMv7-A architecture announced in 2011.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: VLSI Technology",
+    "url": "https://en.wikipedia.org/wiki/VLSI_Technology",
+    "content": "VLSI Technology, Inc., was an American company that designed and manufactured custom and semi-custom integrated circuits (ICs). The company was based in Silicon Valley, with headquarters at 1109 McKay Drive in San Jose.  Along with LSI Logic, VLSI Technology defined the leading edge of the application-specific integrated circuit (ASIC) business, which accelerated the push of powerful embedded systems into affordable products.\nInitially the company often referred to itself as \"VTI\" (for VLSI Technology Inc.), and adopted a distinctive \"VTI\" logo. But it was forced to drop that designation in the mid-1980s because of a trademark conflict. \nVLSI was acquired in June 1999, for about $1 billion, by Philips Electronics and is today a part of the Philips spin-off NXP Semiconductors.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Comparison of operating system kernels",
+    "url": "https://en.wikipedia.org/wiki/Comparison_of_operating_system_kernels",
+    "content": "A kernel is a component of a computer operating system.  It serves as an intermediary connecting software to hardware, enabling them to work together seamlessly. A comparison of system kernels can provide insight into the design and architectural choices made by the developers of particular operating systems.\n\n",
+    "type": "wikipedia_api"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "key": "SUBSTRATE_ABF",
+      "label": "SubstrateType",
+      "name": "ABF Substrate",
+      "properties": {
+        "type": "organic",
+        "material": "Ajinomoto Build-up Film",
+        "vendor": "Ajinomoto",
+        "line_space_um": 8,
+        "layer_count": "12-20",
+        "application": "HPC/AI 패키징",
+        "description": "고급 유기 기판, 미세 배선으로 HPC 패키징에 필수",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "SUBSTRATE_SI_INTERPOSER",
+      "label": "SubstrateType",
+      "name": "Silicon Interposer",
+      "properties": {
+        "type": "silicon",
+        "line_space_um": 0.5,
+        "tsv_pitch_um": 10,
+        "application": "CoWoS, 2.5D",
+        "description": "실리콘 인터포저, TSV로 다이 간 초고밀도 연결",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "SUBSTRATE_GLASS",
+      "label": "SubstrateType",
+      "name": "Glass Core Substrate",
+      "properties": {
+        "type": "glass",
+        "line_space_um": 2,
+        "vendors": [
+          "Absolics (SKC)",
+          "Intel"
+        ],
+        "advantage": "낮은 열팽창, 대면적, TGV (Through Glass Via)",
+        "status": "Early Production (2025+)",
+        "description": "차세대 패키징 기판, ABF/Si 인터포저 대체 후보",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "SUBSTRATE_FCBGA",
+      "label": "SubstrateType",
+      "name": "FC-BGA Substrate",
+      "properties": {
+        "type": "organic",
+        "line_space_um": 15,
+        "application": "범용 플립칩 BGA",
+        "description": "가장 일반적인 유기 기판, 서버/PC/모바일 범용",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "HYBRID_BONDING",
+      "label": "SubstrateType",
+      "name": "Hybrid Bonding (Cu-Cu)",
+      "properties": {
+        "type": "interconnect_technology",
+        "bond_pitch_um": 1.0,
+        "min_pitch_um": 0.5,
+        "bandwidth_density_tbps_per_mm2": 12.8,
+        "vendors": [
+          "TSMC (SoIC)",
+          "Intel (Foveros Direct)",
+          "Samsung"
+        ],
+        "description": "구리-구리 직접 접합, 3D 적층의 핵심 기술, µ-bump 대체",
+        "_web_enriched": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "CoWoS-S",
+      "to_key": "SUBSTRATE_SI_INTERPOSER",
+      "type": "USES_SUBSTRATE",
+      "properties": {}
+    },
+    {
+      "from_key": "CoWoS-L",
+      "to_key": "SUBSTRATE_SI_INTERPOSER",
+      "type": "USES_SUBSTRATE",
+      "properties": {}
+    },
+    {
+      "from_key": "CoWoS-S",
+      "to_key": "SUBSTRATE_ABF",
+      "type": "USES_SUBSTRATE",
+      "properties": {
+        "note": "base substrate"
+      }
+    },
+    {
+      "from_key": "EMIB",
+      "to_key": "SUBSTRATE_ABF",
+      "type": "USES_SUBSTRATE",
+      "properties": {}
+    },
+    {
+      "from_key": "InFO",
+      "to_key": "SUBSTRATE_FCBGA",
+      "type": "USES_SUBSTRATE",
+      "properties": {}
+    },
+    {
+      "from_key": "Foveros",
+      "to_key": "HYBRID_BONDING",
+      "type": "CONNECTS_VIA",
+      "properties": {}
+    }
+  ]
+}

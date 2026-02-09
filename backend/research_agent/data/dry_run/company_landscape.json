@@ -1,0 +1,207 @@
+{
+  "nodes": [
+    {
+      "key": "COMPANY_NVIDIA",
+      "label": "Company",
+      "name": "NVIDIA",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "Santa Clara, CA",
+        "revenue_b_usd": 130.5,
+        "market_cap_b_usd": 3200,
+        "focus": [
+          "AI Accelerator",
+          "GPU",
+          "Data Center",
+          "Automotive"
+        ],
+        "founded_year": 1993,
+        "description": "AI 가속기 시장 지배적 위치, 데이터센터 GPU 시장점유율 80%+"
+      }
+    },
+    {
+      "key": "COMPANY_AMD",
+      "label": "Company",
+      "name": "AMD",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "Santa Clara, CA",
+        "revenue_b_usd": 22.7,
+        "focus": [
+          "CPU",
+          "GPU",
+          "AI Accelerator",
+          "FPGA"
+        ],
+        "founded_year": 1969,
+        "description": "CPU/GPU 듀얼 라인업, MI300X로 AI 가속기 시장 진입"
+      }
+    },
+    {
+      "key": "COMPANY_INTEL",
+      "label": "Company",
+      "name": "Intel",
+      "properties": {
+        "type": "IDM",
+        "country": "United States",
+        "hq": "Santa Clara, CA",
+        "revenue_b_usd": 54.2,
+        "focus": [
+          "CPU",
+          "Foundry",
+          "AI Accelerator",
+          "FPGA"
+        ],
+        "founded_year": 1968,
+        "description": "IDM + 파운드리 전환 중, Gaudi AI 가속기"
+      }
+    },
+    {
+      "key": "COMPANY_QUALCOMM",
+      "label": "Company",
+      "name": "Qualcomm",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "San Diego, CA",
+        "revenue_b_usd": 38.9,
+        "focus": [
+          "Mobile SoC",
+          "5G Modem",
+          "Automotive",
+          "IoT"
+        ],
+        "founded_year": 1985,
+        "description": "모바일 AP/모뎀 시장 지배, 자동차/IoT 확장"
+      }
+    },
+    {
+      "key": "COMPANY_BROADCOM",
+      "label": "Company",
+      "name": "Broadcom",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "Palo Alto, CA",
+        "revenue_b_usd": 51.6,
+        "focus": [
+          "Networking ASIC",
+          "Custom AI ASIC",
+          "Broadband",
+          "Storage"
+        ],
+        "founded_year": 1961,
+        "description": "네트워크 칩 1위, 구글 TPU 등 커스텀 AI ASIC 설계"
+      }
+    },
+    {
+      "key": "COMPANY_GOOGLE",
+      "label": "Company",
+      "name": "Google (Alphabet)",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "Mountain View, CA",
+        "revenue_b_usd": 350.0,
+        "focus": [
+          "Custom AI ASIC (TPU)",
+          "Cloud"
+        ],
+        "description": "자체 TPU 설계, AI 학습/추론 인프라"
+      }
+    },
+    {
+      "key": "COMPANY_APPLE",
+      "label": "Company",
+      "name": "Apple",
+      "properties": {
+        "type": "FABLESS",
+        "country": "United States",
+        "hq": "Cupertino, CA",
+        "revenue_b_usd": 383.0,
+        "focus": [
+          "Mobile SoC",
+          "PC SoC",
+          "Custom Silicon"
+        ],
+        "description": "A/M 시리즈 자체 설계, TSMC 최대 고객"
+      }
+    },
+    {
+      "key": "COMPANY_ASE",
+      "label": "Company",
+      "name": "ASE Technology",
+      "properties": {
+        "type": "OSAT",
+        "country": "Taiwan",
+        "hq": "Kaohsiung",
+        "revenue_b_usd": 18.9,
+        "description": "세계 최대 OSAT (반도체 패키징/테스트)"
+      }
+    },
+    {
+      "key": "COMPANY_AMKOR",
+      "label": "Company",
+      "name": "Amkor Technology",
+      "properties": {
+        "type": "OSAT",
+        "country": "United States",
+        "hq": "Tempe, AZ",
+        "revenue_b_usd": 7.0,
+        "description": "OSAT 2위, 어드밴스드 패키징 확대"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "COMPANY_NVIDIA",
+      "to_key": "H100_SXM",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_NVIDIA",
+      "to_key": "H200_SXM",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_NVIDIA",
+      "to_key": "B200",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_AMD",
+      "to_key": "MI300X",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_AMD",
+      "to_key": "MI325X",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_INTEL",
+      "to_key": "Gaudi3",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_GOOGLE",
+      "to_key": "TPUv5e",
+      "type": "DESIGNS",
+      "properties": {}
+    },
+    {
+      "from_key": "COMPANY_INTEL",
+      "to_key": "INTEL_FOUNDRY",
+      "type": "OPERATES",
+      "properties": {}
+    }
+  ]
+}

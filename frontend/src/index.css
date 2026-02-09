@@ -12,12 +12,46 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f8fafc;
+  background-color: #0F111A;
+  color: #e5e7eb;
+}
+
+/* ─── Global Scrollbar (dark) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B7280;
+}
+
+/* ─── Global Form Inputs (dark) ─── */
+select,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+  background-color: #111420;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+select option {
+  background-color: #161B28;
+  color: #e5e7eb;
 }
 
 /* Custom slider styles */
 input[type="range"] {
-  @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+  @apply w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -30,20 +64,20 @@ input[type="range"]::-moz-range-thumb {
 
 /* Card styles */
 .card {
-  @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+  @apply bg-[#161B28] rounded-xl shadow-sm border border-gray-700/50 p-6;
 }
 
 .card-header {
-  @apply text-lg font-semibold text-gray-900 mb-4;
+  @apply text-lg font-semibold text-gray-100 mb-4;
 }
 
 /* Metric display */
 .metric-value {
-  @apply text-3xl font-bold text-gray-900;
+  @apply text-3xl font-bold text-gray-100;
 }
 
 .metric-label {
-  @apply text-sm text-gray-500 mt-1;
+  @apply text-sm text-gray-400 mt-1;
 }
 
 /* Status badges */
@@ -52,13 +86,47 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .badge-green {
-  @apply bg-green-100 text-green-800;
+  @apply bg-green-900/30 text-green-400;
 }
 
 .badge-yellow {
-  @apply bg-yellow-100 text-yellow-800;
+  @apply bg-yellow-900/30 text-yellow-400;
 }
 
 .badge-red {
-  @apply bg-red-100 text-red-800;
+  @apply bg-red-900/30 text-red-400;
+}
+
+/* ─── Graph Explorer Dark Theme ─── */
+.graph-explorer ::-webkit-scrollbar {
+  width: 6px;
+}
+.graph-explorer ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.graph-explorer ::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 3px;
+}
+.graph-explorer ::-webkit-scrollbar-thumb:hover {
+  background: #6B7280;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor; }
+}
+.node-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+.glass-panel {
+  background: rgba(22, 27, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dot-grid {
+  background-image: radial-gradient(#4B5563 1px, transparent 1px);
+  background-size: 40px 40px;
 }

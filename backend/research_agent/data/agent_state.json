@@ -1,0 +1,91 @@
+{
+  "topics": {
+    "foundry_fabsite": {
+      "status": "complete",
+      "detail": "nodes=7, sources=16",
+      "updated_at": "2026-02-01T05:43:18.511971"
+    },
+    "process_generation": {
+      "status": "complete",
+      "detail": "nodes=6, sources=13",
+      "updated_at": "2026-02-01T05:44:55.350495"
+    },
+    "memory_standard": {
+      "status": "complete",
+      "detail": "nodes=9, sources=9",
+      "updated_at": "2026-02-01T05:46:24.741109"
+    },
+    "interconnect_standard": {
+      "status": "complete",
+      "detail": "nodes=4, sources=10",
+      "updated_at": "2026-02-01T05:47:13.873508"
+    },
+    "packaging_detail": {
+      "status": "complete",
+      "detail": "nodes=6, sources=13",
+      "updated_at": "2026-02-01T05:48:15.722260"
+    },
+    "equipment_ecosystem": {
+      "status": "complete",
+      "detail": "nodes=7, sources=11",
+      "updated_at": "2026-02-01T05:49:10.239199"
+    },
+    "material_suppliers": {
+      "status": "complete",
+      "detail": "nodes=6, sources=9",
+      "updated_at": "2026-02-01T05:50:01.929457"
+    },
+    "design_ip": {
+      "status": "complete",
+      "detail": "nodes=9, sources=8",
+      "updated_at": "2026-02-01T05:50:48.108431"
+    },
+    "company_landscape": {
+      "status": "complete",
+      "detail": "nodes=11, sources=15",
+      "updated_at": "2026-02-01T05:52:29.071156"
+    },
+    "benchmark_performance": {
+      "status": "complete",
+      "detail": "nodes=3, sources=6",
+      "updated_at": "2026-02-01T06:08:52.426610"
+    },
+    "reliability_testing": {
+      "status": "complete",
+      "detail": "nodes=3, sources=3",
+      "updated_at": "2026-02-01T06:19:53.890959"
+    },
+    "industry_standards": {
+      "status": "complete",
+      "detail": "nodes=5, sources=6",
+      "updated_at": "2026-02-01T06:55:48.408419"
+    },
+    "application_segments": {
+      "status": "complete",
+      "detail": "nodes=6, sources=8",
+      "updated_at": "2026-02-01T07:00:11.590838"
+    },
+    "thermal_power": {
+      "status": "complete",
+      "detail": "nodes=6, sources=8",
+      "updated_at": "2026-02-01T07:04:33.485038"
+    },
+    "regulation_geopolitics": {
+      "status": "complete",
+      "detail": "nodes=7, sources=10",
+      "updated_at": "2026-02-01T07:09:44.321797"
+    },
+    "inspection_metrology": {
+      "status": "complete",
+      "detail": "nodes=5, sources=7",
+      "updated_at": "2026-02-01T07:13:21.403459"
+    }
+  },
+  "last_run": "2026-02-01T05:40:59.131861",
+  "stats": {
+    "pages_fetched": 826,
+    "llm_calls": 133,
+    "total_nodes": 364,
+    "total_relationships": 533
+  }
+}

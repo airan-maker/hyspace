@@ -13,6 +13,9 @@ from .websocket import router as websocket_router
 from .ontology import router as ontology_router
 from .seed import router as seed_router
 from .graph import router as graph_router
+from .ai_insights import router as ai_insights_router
+from .whatif import router as whatif_router
+from .yield_graph import router as yield_graph_router
 
 api_router = APIRouter()
 api_router.include_router(simulation_router, prefix="/simulate", tags=["Simulation"])
@@ -29,3 +32,6 @@ api_router.include_router(websocket_router, tags=["Real-time WebSocket"])
 api_router.include_router(ontology_router, tags=["Domain Ontology"])
 api_router.include_router(seed_router, tags=["Seed Data Agent"])
 api_router.include_router(graph_router, tags=["Graph Database"])
+api_router.include_router(ai_insights_router, tags=["AI Insights"])
+api_router.include_router(whatif_router, tags=["What-If Simulation"])
+api_router.include_router(yield_graph_router, tags=["Yield-Graph Bridge"])

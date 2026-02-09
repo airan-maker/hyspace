@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "key": "GEN_PLANAR",
+      "label": "ProcessGeneration",
+      "name": "Planar MOSFET",
+      "properties": {
+        "transistor_type": "Planar",
+        "era": "1960s-2011",
+        "min_node_nm": 22,
+        "description": "전통적 평면 MOSFET, 22nm까지 사용",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GEN_FINFET",
+      "label": "ProcessGeneration",
+      "name": "FinFET",
+      "properties": {
+        "transistor_type": "FinFET",
+        "era": "2011-2025",
+        "min_node_nm": 3,
+        "introduced_by": "Intel (22nm, 2011)",
+        "description": "3D 핀 구조로 누설 전류 감소, 3nm까지 사용",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GEN_GAA",
+      "label": "ProcessGeneration",
+      "name": "GAA (Nanosheet)",
+      "properties": {
+        "transistor_type": "GAA Nanosheet",
+        "era": "2022-2028+",
+        "min_node_nm": 1.4,
+        "variants": [
+          "Samsung MBCFET",
+          "Intel RibbonFET",
+          "TSMC Nanosheet"
+        ],
+        "description": "게이트가 채널을 완전 둘러싸는 구조, 가변 시트 폭으로 성능 최적화",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GEN_CFET",
+      "label": "ProcessGeneration",
+      "name": "CFET (Complementary FET)",
+      "properties": {
+        "transistor_type": "CFET",
+        "era": "2028+",
+        "min_node_nm": 1,
+        "status": "R&D",
+        "description": "nFET 위에 pFET 수직 적층, 로직 밀도 극대화 (Angstrom era)",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GEN_BSPDN",
+      "label": "ProcessGeneration",
+      "name": "Backside Power Delivery (BSPDN)",
+      "properties": {
+        "type": "Power Delivery Innovation",
+        "era": "2025+",
+        "adopters": [
+          "TSMC A16 (Super Power Rail)",
+          "Intel 20A/18A (PowerVia)",
+          "Samsung SF2"
+        ],
+        "description": "전력 배선을 칩 뒷면으로 이동, 신호 배선 밀도 향상 + IR drop 감소",
+        "_web_enriched": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "N7",
+      "to_key": "GEN_FINFET",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "N5",
+      "to_key": "GEN_FINFET",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "N4P",
+      "to_key": "GEN_FINFET",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "N3E",
+      "to_key": "GEN_FINFET",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "N3P",
+      "to_key": "GEN_FINFET",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "N2",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "A16",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "SF3",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "SF2",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "Intel_20A",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "Intel_18A",
+      "to_key": "GEN_GAA",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "A16",
+      "to_key": "GEN_BSPDN",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "Intel_20A",
+      "to_key": "GEN_BSPDN",
+      "type": "GENERATION_OF",
+      "properties": {}
+    },
+    {
+      "from_key": "Intel_18A",
+      "to_key": "GEN_BSPDN",
+      "type": "GENERATION_OF",
+      "properties": {}
+    }
+  ]
+}

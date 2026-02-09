@@ -1,0 +1,112 @@
+{
+  "nodes": [
+    {
+      "key": "APP_DATACENTER_TRAINING",
+      "label": "Application",
+      "name": "AI Training (Data Center)",
+      "properties": {
+        "segment": "DATACENTER",
+        "workload": "LLM/Foundation Model Training",
+        "requirements": {
+          "compute": "FP8/BF16 PFLOPS",
+          "memory": "HBM 192GB+",
+          "interconnect": "NVLink/InfiniBand",
+          "power": "700W+"
+        },
+        "description": "LLM 학습용 데이터센터, 수천 GPU 클러스터"
+      }
+    },
+    {
+      "key": "APP_DATACENTER_INFERENCE",
+      "label": "Application",
+      "name": "AI Inference (Data Center)",
+      "properties": {
+        "segment": "DATACENTER",
+        "workload": "LLM Serving, Image Gen",
+        "requirements": {
+          "compute": "INT8/INT4 TOPS",
+          "memory": "Large capacity for KV cache",
+          "latency": "<50ms TTFT"
+        },
+        "description": "AI 추론 서빙, 비용/성능 최적화 중요"
+      }
+    },
+    {
+      "key": "APP_EDGE_AI",
+      "label": "Application",
+      "name": "Edge AI Inference",
+      "properties": {
+        "segment": "EDGE",
+        "workload": "On-device LLM, Vision",
+        "requirements": {
+          "compute": "10-100 TOPS",
+          "power": "<15W",
+          "memory": "8-16GB LPDDR"
+        },
+        "description": "엣지 디바이스에서의 AI 추론 (스마트폰, IoT)"
+      }
+    },
+    {
+      "key": "APP_AUTOMOTIVE",
+      "label": "Application",
+      "name": "Automotive ADAS/AD",
+      "properties": {
+        "segment": "AUTOMOTIVE",
+        "workload": "Perception, Planning, Control",
+        "requirements": {
+          "compute": "100-1000 TOPS",
+          "reliability": "AEC-Q100 Grade 1",
+          "power": "50-200W"
+        },
+        "description": "자율주행/ADAS용 SoC, 안전등급(ASIL-D) 필수"
+      }
+    },
+    {
+      "key": "APP_MOBILE",
+      "label": "Application",
+      "name": "Mobile AI (Smartphone)",
+      "properties": {
+        "segment": "MOBILE",
+        "workload": "On-device LLM, Camera AI, Voice",
+        "requirements": {
+          "compute": "10-45 TOPS NPU",
+          "power": "<5W",
+          "process": "3-4nm"
+        },
+        "description": "스마트폰 온디바이스 AI, Qualcomm/MediaTek/Apple SoC"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "H100_SXM",
+      "to_key": "APP_DATACENTER_TRAINING",
+      "type": "OPTIMIZED_FOR",
+      "properties": {}
+    },
+    {
+      "from_key": "B200",
+      "to_key": "APP_DATACENTER_TRAINING",
+      "type": "OPTIMIZED_FOR",
+      "properties": {}
+    },
+    {
+      "from_key": "H200_SXM",
+      "to_key": "APP_DATACENTER_INFERENCE",
+      "type": "OPTIMIZED_FOR",
+      "properties": {}
+    },
+    {
+      "from_key": "MI300X",
+      "to_key": "APP_DATACENTER_INFERENCE",
+      "type": "OPTIMIZED_FOR",
+      "properties": {}
+    },
+    {
+      "from_key": "TPUv5e",
+      "to_key": "APP_DATACENTER_INFERENCE",
+      "type": "OPTIMIZED_FOR",
+      "properties": {}
+    }
+  ]
+}

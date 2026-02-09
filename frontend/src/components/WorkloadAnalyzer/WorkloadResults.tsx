@@ -10,17 +10,17 @@ interface WorkloadResultsProps {
 
 function CharacterizationBadge({ type, bottleneck }: { type: string; bottleneck: string }) {
   const colorMap: Record<string, string> = {
-    'Memory-Bound': 'bg-purple-100 text-purple-800',
-    'Compute-Bound': 'bg-blue-100 text-blue-800',
-    'Balanced': 'bg-green-100 text-green-800',
+    'Memory-Bound': 'bg-purple-900/30 text-purple-400',
+    'Compute-Bound': 'bg-blue-900/30 text-blue-400',
+    'Balanced': 'bg-green-900/30 text-green-400',
   };
 
   return (
     <div className="flex flex-wrap gap-2">
-      <span className={`px-3 py-1 rounded-full text-sm font-medium ${colorMap[type] || 'bg-gray-100 text-gray-800'}`}>
+      <span className={`px-3 py-1 rounded-full text-sm font-medium ${colorMap[type] || 'bg-gray-800 text-gray-300'}`}>
         {type}
       </span>
-      <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+      <span className="px-3 py-1 rounded-full text-sm font-medium bg-orange-900/30 text-orange-400">
         Bottleneck: {bottleneck}
       </span>
     </div>
@@ -29,9 +29,9 @@ function CharacterizationBadge({ type, bottleneck }: { type: string; bottleneck:
 
 function MetricRow({ label, value, unit }: { label: string; value: string | number; unit: string }) {
   return (
-    <div className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-      <span className="text-sm text-gray-600">{label}</span>
-      <span className="text-sm font-semibold text-gray-900">
+    <div className="flex justify-between items-center py-2 border-b border-gray-700 last:border-0">
+      <span className="text-sm text-gray-400">{label}</span>
+      <span className="text-sm font-semibold text-gray-100">
         {value}<span className="text-gray-500 font-normal ml-1">{unit}</span>
       </span>
     </div>
@@ -40,11 +40,11 @@ function MetricRow({ label, value, unit }: { label: string; value: string | numb
 
 function ArchitectureCard({ arch, isRecommended }: { arch: RecommendedArchitecture; isRecommended: boolean }) {
   return (
-    <div className={`rounded-lg border-2 p-4 ${isRecommended ? 'border-nexus-500 bg-nexus-50' : 'border-gray-200'}`}>
+    <div className={`rounded-lg border-2 p-4 ${isRecommended ? 'border-nexus-500 bg-nexus-900/20' : 'border-gray-700'}`}>
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h4 className="font-semibold text-gray-900">{arch.name}</h4>
-          <p className="text-xs text-gray-500">{arch.process_node_nm}nm Process</p>
+          <h4 className="font-semibold text-gray-100">{arch.name}</h4>
+          <p className="text-xs text-gray-400">{arch.process_node_nm}nm Process</p>
         </div>
         <div className="flex flex-col items-end gap-1">
           {isRecommended && (
@@ -53,9 +53,9 @@ function ArchitectureCard({ arch, isRecommended }: { arch: RecommendedArchitectu
             </span>
           )}
           <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
-            arch.match_score >= 90 ? 'bg-green-100 text-green-800' :
-            arch.match_score >= 70 ? 'bg-yellow-100 text-yellow-800' :
-            'bg-red-100 text-red-800'
+            arch.match_score >= 90 ? 'bg-green-900/30 text-green-400' :
+            arch.match_score >= 70 ? 'bg-yellow-900/30 text-yellow-400' :
+            'bg-red-900/30 text-red-400'
           }`}>
             {arch.match_score}% Match
           </span>
@@ -71,15 +71,15 @@ function ArchitectureCard({ arch, isRecommended }: { arch: RecommendedArchitectu
         <MetricRow label="Die Size" value={arch.die_size_mm2.toFixed(0)} unit="mm2" />
       </div>
 
-      <div className="text-lg font-bold text-nexus-700 mb-3">
+      <div className="text-lg font-bold text-nexus-400 mb-3">
         Est. Unit Cost: ${arch.estimated_unit_cost.toFixed(0)}
       </div>
 
       {/* Justifications */}
       {arch.justifications.length > 0 && (
         <div className="mb-2">
-          <p className="text-xs font-medium text-green-700 mb-1">Strengths:</p>
-          <ul className="text-xs text-gray-600 space-y-0.5">
+          <p className="text-xs font-medium text-green-400 mb-1">Strengths:</p>
+          <ul className="text-xs text-gray-400 space-y-0.5">
             {arch.justifications.slice(0, 3).map((j, i) => (
               <li key={i} className="flex items-start gap-1">
                 <span className="text-green-500 mt-0.5">+</span>
@@ -93,8 +93,8 @@ function ArchitectureCard({ arch, isRecommended }: { arch: RecommendedArchitectu
       {/* Trade-offs */}
       {arch.trade_offs.length > 0 && (
         <div>
-          <p className="text-xs font-medium text-yellow-700 mb-1">Trade-offs:</p>
-          <ul className="text-xs text-gray-600 space-y-0.5">
+          <p className="text-xs font-medium text-yellow-400 mb-1">Trade-offs:</p>
+          <ul className="text-xs text-gray-400 space-y-0.5">
             {arch.trade_offs.slice(0, 2).map((t, i) => (
               <li key={i} className="flex items-start gap-1">
                 <span className="text-yellow-500 mt-0.5">-</span>
@@ -109,14 +109,14 @@ function ArchitectureCard({ arch, isRecommended }: { arch: RecommendedArchitectu
 }
 
 function ConfidenceBadge({ score }: { score: number }) {
-  let colorClass = 'bg-green-100 text-green-800';
+  let colorClass = 'bg-green-900/30 text-green-400';
   let label = 'High';
 
   if (score < 70) {
-    colorClass = 'bg-red-100 text-red-800';
+    colorClass = 'bg-red-900/30 text-red-400';
     label = 'Low';
   } else if (score < 90) {
-    colorClass = 'bg-yellow-100 text-yellow-800';
+    colorClass = 'bg-yellow-900/30 text-yellow-400';
     label = 'Medium';
   }
 
@@ -133,10 +133,10 @@ export function WorkloadResults({ result, isLoading }: WorkloadResultsProps) {
       <div className="card">
         <h2 className="card-header">Workload Analysis</h2>
         <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 rounded w-1/2" />
+          <div className="h-8 bg-gray-700 rounded w-1/2" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[1, 2].map((i) => (
-              <div key={i} className="h-64 bg-gray-200 rounded-lg" />
+              <div key={i} className="h-64 bg-gray-700 rounded-lg" />
             ))}
           </div>
         </div>
@@ -149,10 +149,10 @@ export function WorkloadResults({ result, isLoading }: WorkloadResultsProps) {
       <div className="card">
         <h2 className="card-header">Workload Analysis</h2>
         <div className="text-center py-12">
-          <svg className="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
           </svg>
-          <p className="text-gray-500">Configure your workload profile and run analysis to see recommendations</p>
+          <p className="text-gray-400">Configure your workload profile and run analysis to see recommendations</p>
         </div>
       </div>
     );
@@ -178,14 +178,14 @@ export function WorkloadResults({ result, isLoading }: WorkloadResultsProps) {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-wider">Required TOPS</p>
+          <div className="bg-[#1E2433] rounded-lg p-4">
+            <p className="text-xs text-gray-400 uppercase tracking-wider">Required TOPS</p>
             <p className="text-2xl font-bold text-nexus-600">
               {result.characterization.required_tops.toLocaleString()}
             </p>
           </div>
-          <div className="bg-gray-50 rounded-lg p-4">
-            <p className="text-xs text-gray-500 uppercase tracking-wider">Arithmetic Intensity</p>
+          <div className="bg-[#1E2433] rounded-lg p-4">
+            <p className="text-xs text-gray-400 uppercase tracking-wider">Arithmetic Intensity</p>
             <p className="text-2xl font-bold text-purple-600">
               {result.characterization.arithmetic_intensity.toFixed(1)} <span className="text-lg font-normal">OPs/B</span>
             </p>
@@ -193,12 +193,12 @@ export function WorkloadResults({ result, isLoading }: WorkloadResultsProps) {
         </div>
 
         {result.analysis_notes.length > 0 && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <p className="text-sm font-medium text-blue-800 mb-2">Analysis Notes</p>
-            <ul className="text-sm text-blue-700 space-y-1">
+          <div className="mt-4 p-3 bg-blue-900/20 rounded-lg">
+            <p className="text-sm font-medium text-blue-300 mb-2">Analysis Notes</p>
+            <ul className="text-sm text-blue-400 space-y-1">
               {result.analysis_notes.map((note, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <span className="text-blue-400">*</span>
+                  <span className="text-blue-500">*</span>
                   {note}
                 </li>
               ))}

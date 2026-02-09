@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {
+      "key": "BENCH_MLPERF_TRAIN",
+      "label": "Benchmark",
+      "name": "MLPerf Training",
+      "properties": {
+        "category": "MLPERF",
+        "metric_unit": "time_to_train_minutes",
+        "higher_is_better": false,
+        "org": "MLCommons",
+        "description": "AI 학습 성능 업계 표준 벤치마크"
+      }
+    },
+    {
+      "key": "BENCH_MLPERF_INFER",
+      "label": "Benchmark",
+      "name": "MLPerf Inference",
+      "properties": {
+        "category": "MLPERF",
+        "metric_unit": "queries_per_second",
+        "higher_is_better": true,
+        "org": "MLCommons",
+        "description": "AI 추론 성능 벤치마크 (Server/Offline 시나리오)"
+      }
+    },
+    {
+      "key": "BENCH_TOPS_PER_W",
+      "label": "Benchmark",
+      "name": "TOPS/Watt",
+      "properties": {
+        "category": "EFFICIENCY",
+        "metric_unit": "TOPS_per_watt",
+        "higher_is_better": true,
+        "description": "전력 효율 지표 (INT8 TOPS / TDP)"
+      }
+    },
+    {
+      "key": "BENCH_MEM_BW",
+      "label": "Benchmark",
+      "name": "Memory Bandwidth",
+      "properties": {
+        "category": "BANDWIDTH",
+        "metric_unit": "TB_per_s",
+        "higher_is_better": true,
+        "description": "메모리 대역폭 벤치마크"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "H100_SXM",
+      "to_key": "BENCH_TOPS_PER_W",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 5.65,
+        "precision": "INT8"
+      }
+    },
+    {
+      "from_key": "B200",
+      "to_key": "BENCH_TOPS_PER_W",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 9.0,
+        "precision": "INT8"
+      }
+    },
+    {
+      "from_key": "MI300X",
+      "to_key": "BENCH_TOPS_PER_W",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 3.49,
+        "precision": "INT8"
+      }
+    },
+    {
+      "from_key": "H100_SXM",
+      "to_key": "BENCH_MEM_BW",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 3.35
+      }
+    },
+    {
+      "from_key": "B200",
+      "to_key": "BENCH_MEM_BW",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 8.0
+      }
+    },
+    {
+      "from_key": "MI300X",
+      "to_key": "BENCH_MEM_BW",
+      "type": "SCORES_ON",
+      "properties": {
+        "score": 5.3
+      }
+    }
+  ]
+}

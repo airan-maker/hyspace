@@ -4,17 +4,19 @@
  */
 
 import type { YieldEvent } from '../../types/yield';
+import GraphContextPanel from './GraphContextPanel';
 
 interface Props {
   events: YieldEvent[];
   onAnalyze: (event: YieldEvent) => void;
   selectedEventId?: string;
+  onNavigateToGraph?: (query?: string) => void;
 }
 
-export default function YieldEventList({ events, onAnalyze, selectedEventId }: Props) {
+export default function YieldEventList({ events, onAnalyze, selectedEventId, onNavigateToGraph }: Props) {
   if (!events || events.length === 0) {
     return (
-      <div className="h-64 flex items-center justify-center text-gray-500">
+      <div className="h-64 flex items-center justify-center text-gray-400">
         최근 이벤트가 없습니다
       </div>
     );
@@ -22,11 +24,11 @@ export default function YieldEventList({ events, onAnalyze, selectedEventId }: P
 
   const getStatusBadge = (status: string) => {
     const styles: Record<string, string> = {
-      OPEN: 'bg-red-100 text-red-700',
-      INVESTIGATING: 'bg-yellow-100 text-yellow-700',
-      ROOT_CAUSE_IDENTIFIED: 'bg-blue-100 text-blue-700',
-      RESOLVED: 'bg-green-100 text-green-700',
-      CLOSED: 'bg-gray-100 text-gray-700',
+      OPEN: 'bg-red-900/30 text-red-400',
+      INVESTIGATING: 'bg-yellow-900/30 text-yellow-400',
+      ROOT_CAUSE_IDENTIFIED: 'bg-blue-900/30 text-blue-400',
+      RESOLVED: 'bg-green-900/30 text-green-400',
+      CLOSED: 'bg-gray-800 text-gray-400',
     };
 
     const labels: Record<string, string> = {
@@ -72,15 +74,15 @@ export default function YieldEventList({ events, onAnalyze, selectedEventId }: P
           key={event.event_id}
           className={`p-4 rounded-lg border transition cursor-pointer ${
             selectedEventId === event.event_id
-              ? 'border-blue-500 bg-blue-50'
-              : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
+              ? 'border-nexus-500 bg-nexus-900/20'
+              : 'border-gray-700 hover:border-nexus-600 hover:bg-[#1E2433]'
           }`}
           onClick={() => onAnalyze(event)}
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-2">
               {getSeverityIndicator(event.severity)}
-              <span className="font-medium text-gray-900 text-sm">{event.title}</span>
+              <span className="font-medium text-gray-100 text-sm">{event.title}</span>
             </div>
             {getStatusBadge(event.status)}
           </div>
@@ -94,7 +96,7 @@ export default function YieldEventList({ events, onAnalyze, selectedEventId }: P
           </div>
 
           {event.analysis_summary && (
-            <p className="mt-2 text-xs text-gray-600 line-clamp-2">
+            <p className="mt-2 text-xs text-gray-400 line-clamp-2">
               {event.analysis_summary}
             </p>
           )}
@@ -105,7 +107,7 @@ export default function YieldEventList({ events, onAnalyze, selectedEventId }: P
                 e.stopPropagation();
                 onAnalyze(event);
               }}
-              className="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded hover:bg-blue-100 transition"
+              className="px-3 py-1 text-xs font-medium text-nexus-400 bg-nexus-900/20 rounded hover:bg-nexus-900/40 transition"
             >
               RCA 분석
             </button>
@@ -115,6 +117,17 @@ export default function YieldEventList({ events, onAnalyze, selectedEventId }: P
               </span>
             )}
           </div>
+
+          {/* 그래프 컨텍스트 패널 */}
+          {selectedEventId === event.event_id && (
+            <GraphContextPanel
+              processStep={event.title}
+              equipmentId={
+                event.root_causes?.find(rc => rc.cause_type === 'EQUIPMENT')?.entity_id
+              }
+              onNavigateToGraph={onNavigateToGraph}
+            />
+          )}
         </div>
       ))}
     </div>

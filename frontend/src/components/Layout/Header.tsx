@@ -16,7 +16,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-[#0D0F17] border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
@@ -26,8 +26,8 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">HySpace</h1>
-              <p className="text-xs text-gray-500">AI Chip Design Platform</p>
+              <h1 className="text-xl font-bold text-gray-100">HySpace</h1>
+              <p className="text-xs text-gray-400">AI Chip Design Platform</p>
             </div>
           </div>
           <nav className="flex items-center gap-1">
@@ -37,8 +37,8 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
                 onClick={() => onPageChange(item.id)}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   currentPage === item.id
-                    ? 'bg-nexus-100 text-nexus-700'
-                    : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'bg-nexus-900/40 text-nexus-400'
+                    : 'text-gray-400 hover:text-gray-100 hover:bg-gray-800'
                 }`}
               >
                 {item.label}

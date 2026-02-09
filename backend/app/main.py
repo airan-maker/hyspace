@@ -1,5 +1,9 @@
+import os
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 
 from .config import get_settings
@@ -83,16 +87,21 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api")
 
 
-@app.get("/")
-async def root():
-    return {
-        "name": settings.app_name,
-        "version": settings.app_version,
-        "docs": "/docs",
-        "redoc": "/redoc",
-    }
-
-
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+
+# Serve static frontend (Vite build) — must be AFTER API routes
+static_dir = Path(__file__).resolve().parent.parent / "static"
+if static_dir.is_dir():
+    app.mount("/", StaticFiles(directory=str(static_dir), html=True), name="static")
+else:
+    @app.get("/")
+    async def root():
+        return {
+            "name": settings.app_name,
+            "version": settings.app_version,
+            "docs": "/docs",
+            "redoc": "/redoc",
+        }

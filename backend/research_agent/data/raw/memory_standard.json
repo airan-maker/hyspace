@@ -1,0 +1,62 @@
+[
+  {
+    "source": "Wikipedia - HBM",
+    "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory",
+    "content": "High Bandwidth Memory (HBM) is a computer memory interface for 3D-stacked synchronous dynamic random-access memory (SDRAM) initially from Samsung, AMD and SK Hynix. It is used in conjunction with high-performance graphics accelerators, network devices, high-performance ASICs, as on-package cache or on-package RAM in CPUs, and FPGAs and in some supercomputers (such as the NEC SX-Aurora TSUBASA and Fujitsu A64FX). The first HBM memory chip was produced by SK Hynix in 2013, and the first devices to use HBM were the AMD Fiji GPUs in 2015.\nHBM was adopted by JEDEC as an industry standard in October 2013. The second generation, HBM2, was accepted by JEDEC in January 2016. JEDEC officially announced the HBM3 standard on January 27, 2022, and the HBM4 standard in April 2025.\nIn 2025, the world's largest manufacturers of HBM include SK Hynix, Samsung Electronics, and Micron Technology.\nTSMC produces the base die for HBM and is planned to be the foundry for several HBM companies in 2026.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - DDR5",
+    "url": "https://en.wikipedia.org/wiki/DDR5_SDRAM",
+    "content": "Double Data Rate 5 Synchronous Dynamic Random-Access Memory (DDR5 SDRAM) is a type of synchronous dynamic random-access memory. Compared to its predecessor DDR4 SDRAM, DDR5 was planned to reduce power consumption, while doubling bandwidth. The standard, originally targeted for 2018, was released on July 14, 2020.\nA new feature called Decision Feedback Equalization (DFE) enables input/output (I/O) speed scalability for higher bandwidth and performance improvement. DDR5 has about the same 14 ns latency as DDR4 and DDR3. DDR5 octuples the maximum dual in-line memory module (DIMM) capacity from 64 GB to 512 GB. DDR5 also has higher frequencies than DDR4, up to 9.6 GT/s is currently possible, 8.2 GT/s translates into around 64 GB/s of bandwidth. Speeds of more than 13 GT/s have been achieved using liquid nitrogen.\nRambus announced a working DDR5 DIMM in September 2017. On November 15, 2018, SK Hynix announced completion of its first DDR5 RAM chip; running at 5.2 GT/s at 1.1 V. In February 2019, SK Hynix announced a 6.4 GT/s chip, the highest speed specified by the preliminary DDR5 standard. The first production DDR5 DRAM chip was officially launched by SK Hynix on October 6, 2020. \nThe separate JEDEC standard Low Power Double Data Rate 5 (LPDDR5), intended for laptops and smartphones, was released in February 2019.\nCompared to DDR4, DDR5 further reduces memory voltage to 1.1 V, a reduction from the 1.2 V required by DDR4. DDR5 modules incorporate on-board voltage regulators in order to reach higher speeds.\nIn 2024 the first CUDIMM (clocked unbuffered DIMM) and CSODIMM (clocked SODIMM) modules were introduced together with Intel Arrow Lake. These modules include a component to re-drive the clock signal to help reach higher speeds. AMD does not support CUDIMM, though Zen 5 will accept CUDIMMs in bypass mode.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - GDDR7",
+    "url": "https://en.wikipedia.org/wiki/GDDR7_SDRAM",
+    "content": "Graphics Double Data Rate 7 Synchronous Dynamic Random-Access Memory (GDDR7 SDRAM) is a type of synchronous graphics random-access memory (SGRAM) with a high-bandwidth, \"double data rate\" interface, designed for use in graphics cards and high-performance computing. It is a type of GDDR SDRAM (graphics DDR SDRAM), and is the successor to GDDR6.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - LPDDR",
+    "url": "https://en.wikipedia.org/wiki/LPDDR",
+    "content": "Low-Power Double Data Rate (LPDDR) is a type of synchronous dynamic random-access memory (SDRAM) designed to use less power than conventional memory. It is commonly used in smartphones, tablet computers, and laptops, where reducing power consumption is important for battery life. For this reason, earlier versions of the technology were also known as Mobile DDR.\nLPDDR differs from standard DDR SDRAM in both design and features, with changes that make it more suitable for mobile devices. Unlike DDR, which is typically installed in removable modules, LPDDR is usually soldered directly onto the device's motherboard to conserve space and improve efficiency. Although LPDDR uses a generational naming convention similar to that of DDR memory (such as LPDDR4 and DDR4), the two follow separate development standards, and the version numbers do not indicate that they share the same technologies. The LPDDR standard is developed and maintained by the JEDEC Solid State Technology Association.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia: JEDEC memory standards",
+    "url": "https://en.wikipedia.org/wiki/JEDEC_memory_standards",
+    "content": "The JEDEC memory standards are the specifications for semiconductor memory circuits and similar storage devices promulgated by the Joint Electron Device Engineering Council (JEDEC) Solid State Technology Association, a semiconductor trade and engineering standardization organization.\nJEDEC Standard 100B.01 specifies common terms, units, and other definitions in use in the semiconductor industry. JESC21-C specifies semiconductor memories from the 256 bit static RAM to DDR4 SDRAM modules.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "WikiChip: samsung",
+    "url": "https://en.wikichip.org/wiki/samsung",
+    "content": "Samsung Electronics Co., Ltd.is a South Korean multinational electronics conglomerate owned bySamsung Groupand accounting for roughly 75% of the group's revenue. Samsung is a major manufacturer of electronic products such asmicroprocessors,flash memory, and many otherintegrated circuits. Samsung is also the world's largest manufacturer of mobile phones, tablets, and televisions.\n\nIn May 2013, Samsung sold off itsS3families of4-bitand8-bitmicrocontrollerstoIxys, parent ofZilog, for $50M.\n\nARM:\n\n[Spec Tables]\nIC Identification\nLogo | Example Package\n | \nBy Prefix•By Logo",
+    "type": "wikichip"
+  },
+  {
+    "source": "Corporate: SK HYNIX newsroom",
+    "url": "https://news.skhynix.com/",
+    "content": "[Corporate News]\n- SK hynix Posts Record Annual Financial Results in 2025SK hynix  has announced record annual earnings in 2025 following strong demand for AI memory and high-value added products including HBM.\n- SK hynix to Launch U.S. AI Company to Propel Industry GrowthSK hynix is set to launch a new AI company based in the U.S. in February 2026 which will drive the development of the global AI industry.\n- SK hynix to Establish AI Solutions Arm in U.S.SK hynix has announced it will establish an AI solutions company, tentatively named AI Company (AI Co.), in the U.S. to find new AI growth engines worldwide.\n- SK hynix’s LPDDR5X Earns Top Automotive Memory Safety RatingSK hynix’s LPDDR5X has earned the prestigious ASIL-D certification, the highest functional safety rating for automotive memory under ISO standards.",
+    "type": "corporate_news"
+  },
+  {
+    "source": "Wikipedia: PCI Express",
+    "url": "https://en.wikipedia.org/wiki/PCI_Express",
+    "content": "PCI Express (Peripheral Component Interconnect Express), officially abbreviated as PCIe, is a high-speed standard used to connect hardware components inside computers. It is designed to replace older expansion bus standards such as PCI, PCI-X and AGP. Developed and maintained by the PCI-SIG (PCI Special Interest Group), PCIe is commonly used to connect graphics cards, sound cards, Wi-Fi and Ethernet adapters, and storage devices such as solid-state drives and hard disk drives.\nCompared to earlier standards, PCIe supports faster data transfer, uses fewer pins, takes up less space, and allows devices to be added or removed while the computer is running (hot swapping). It also includes better error detection and supports newer features like I/O virtualization for advanced computing needs.\nPCIe connections are made through lanes, which are pairs of conductors that send and receive data. Devices can use one or more lanes depending on how much data they need to transfer. PCIe technology is also used in laptop expansion cards (like ExpressCard) and in storage connectors such as M.2, U.2, and SATA Express.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Compute Express Link",
+    "url": "https://en.wikipedia.org/wiki/Compute_Express_Link",
+    "content": "Compute Express Link (CXL) is an open standard interconnect for high-speed, high capacity CPU-to-device and CPU-to-memory connections, designed for high performance data center computers. CXL is built on the serial PCI Express (PCIe) physical and electrical interface and includes PCIe-based block input/output protocol (CXL.io) and new cache-coherent protocols for accessing system memory (CXL.cache) and device memory (CXL.mem). The serial communication and pooling capabilities allows CXL memory to overcome performance and socket packaging limitations of common DIMM memory when implementing high storage capacities.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: GDDR6 SDRAM",
+    "url": "https://en.wikipedia.org/wiki/GDDR6_SDRAM",
+    "content": "Graphics Double Data Rate 6 Synchronous Dynamic Random-Access Memory (GDDR6 SDRAM) is a type of synchronous graphics random-access memory (SGRAM) with a high-bandwidth, \"double data rate\" interface, designed for use in graphics cards, game consoles, and high-performance computing. It is a type of GDDR SDRAM (graphics DDR SDRAM), and is the successor to GDDR5. Just like GDDR5X it uses QDR (quad data rate) in reference to the write command clock (WCK) and ODR (Octal Data Rate) in reference to the command clock (CK).",
+    "type": "wikipedia_api"
+  }
+]

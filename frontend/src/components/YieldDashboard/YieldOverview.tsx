@@ -21,17 +21,17 @@ export default function YieldOverview({ dashboard }: Props) {
 
   const yieldStatus =
     yield_vs_target >= 0
-      ? { color: 'text-green-600', bg: 'bg-green-100', icon: '↑' }
-      : { color: 'text-red-600', bg: 'bg-red-100', icon: '↓' };
+      ? { color: 'text-green-400', bg: 'bg-green-900/30', icon: '↑' }
+      : { color: 'text-red-400', bg: 'bg-red-900/30', icon: '↓' };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {/* Overall Yield */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-[#161B28] rounded-xl shadow-sm border border-gray-700/50 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">전체 수율</p>
-            <p className="text-3xl font-bold text-gray-900">
+            <p className="text-sm text-gray-400">전체 수율</p>
+            <p className="text-3xl font-bold text-gray-100">
               {overall_yield.toFixed(1)}%
             </p>
           </div>
@@ -53,13 +53,13 @@ export default function YieldOverview({ dashboard }: Props) {
       </div>
 
       {/* Active Events */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-[#161B28] rounded-xl shadow-sm border border-gray-700/50 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">활성 이벤트</p>
-            <p className="text-3xl font-bold text-gray-900">{active_events}</p>
+            <p className="text-sm text-gray-400">활성 이벤트</p>
+            <p className="text-3xl font-bold text-gray-100">{active_events}</p>
           </div>
-          <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-blue-900/30 flex items-center justify-center">
             <svg
               className="w-6 h-6 text-blue-600"
               fill="none"
@@ -75,19 +75,19 @@ export default function YieldOverview({ dashboard }: Props) {
             </svg>
           </div>
         </div>
-        <div className="mt-4 text-sm text-gray-500">
+        <div className="mt-4 text-sm text-gray-400">
           분석 중인 수율 저하 이벤트
         </div>
       </div>
 
       {/* Critical Events */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-[#161B28] rounded-xl shadow-sm border border-gray-700/50 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">긴급 이벤트</p>
+            <p className="text-sm text-gray-400">긴급 이벤트</p>
             <p className="text-3xl font-bold text-red-600">{critical_events}</p>
           </div>
-          <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-red-900/30 flex items-center justify-center">
             <svg
               className="w-6 h-6 text-red-600"
               fill="none"
@@ -103,19 +103,19 @@ export default function YieldOverview({ dashboard }: Props) {
             </svg>
           </div>
         </div>
-        <div className="mt-4 text-sm text-gray-500">
+        <div className="mt-4 text-sm text-gray-400">
           즉시 조치가 필요한 이벤트
         </div>
       </div>
 
       {/* Weekly Events */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-[#161B28] rounded-xl shadow-sm border border-gray-700/50 p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">이번 주 이벤트</p>
-            <p className="text-3xl font-bold text-gray-900">{events_this_week}</p>
+            <p className="text-sm text-gray-400">이번 주 이벤트</p>
+            <p className="text-3xl font-bold text-gray-100">{events_this_week}</p>
           </div>
-          <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-purple-900/30 flex items-center justify-center">
             <svg
               className="w-6 h-6 text-purple-600"
               fill="none"
@@ -131,7 +131,7 @@ export default function YieldOverview({ dashboard }: Props) {
             </svg>
           </div>
         </div>
-        <div className="mt-4 text-sm text-gray-500">
+        <div className="mt-4 text-sm text-gray-400">
           최근 7일간 발생한 이벤트
         </div>
       </div>

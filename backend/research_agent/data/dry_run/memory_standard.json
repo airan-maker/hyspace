@@ -1,0 +1,98 @@
+{
+  "nodes": [
+    {
+      "key": "DDR5",
+      "label": "MemoryStandard",
+      "name": "DDR5 SDRAM",
+      "properties": {
+        "jedec_id": "JESD79-5C",
+        "type": "DDR",
+        "generation": 5,
+        "max_speed_mtps": 8800,
+        "bandwidth_gbps": 70.4,
+        "voltage_v": 1.1,
+        "channel_width_bits": 32,
+        "burst_length": 16,
+        "description": "서버/데스크탑 표준 메모리, 듀얼 채널 구조",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "LPDDR5X",
+      "label": "MemoryStandard",
+      "name": "LPDDR5X",
+      "properties": {
+        "jedec_id": "JESD209-5B",
+        "type": "LPDDR",
+        "generation": 5,
+        "max_speed_mtps": 8533,
+        "bandwidth_gbps": 68.3,
+        "voltage_v": 1.05,
+        "description": "모바일/노트북용 저전력 메모리",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GDDR7",
+      "label": "MemoryStandard",
+      "name": "GDDR7",
+      "properties": {
+        "jedec_id": "JESD239",
+        "type": "GDDR",
+        "generation": 7,
+        "max_speed_gtps": 36,
+        "bandwidth_per_chip_gbps": 144,
+        "voltage_v": 1.1,
+        "bus_width_bits": 32,
+        "pam4_signaling": true,
+        "description": "GPU용 고대역 메모리, PAM4 시그널링 도입",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "GDDR6X",
+      "label": "MemoryStandard",
+      "name": "GDDR6X",
+      "properties": {
+        "jedec_id": "JESD250C",
+        "type": "GDDR",
+        "generation": 6,
+        "max_speed_gbps": 24,
+        "voltage_v": 1.35,
+        "description": "NVIDIA RTX 40 시리즈 탑재, PAM4",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "CXL_MEM",
+      "label": "MemoryStandard",
+      "name": "CXL Memory Expansion",
+      "properties": {
+        "type": "CXL",
+        "version": "3.0",
+        "bandwidth_gtps": 64,
+        "latency_ns_additional": 50,
+        "description": "PCIe 기반 메모리 확장 프로토콜, Type 3 디바이스",
+        "_web_enriched": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "HBM3",
+      "to_key": "DDR5",
+      "type": "IMPLEMENTS",
+      "properties": {
+        "note": "HBM3 uses DDR5 I/O logic"
+      }
+    },
+    {
+      "from_key": "HBM3E",
+      "to_key": "DDR5",
+      "type": "IMPLEMENTS",
+      "properties": {
+        "note": "HBM3E uses DDR5 I/O logic"
+      }
+    }
+  ]
+}

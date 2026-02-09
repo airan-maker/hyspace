@@ -41,13 +41,13 @@ function getVariantIcon(variant: string): React.ReactNode {
 function getVariantColor(variant: string): string {
   switch (variant) {
     case 'current':
-      return 'border-nexus-200 bg-nexus-50';
+      return 'border-nexus-700 bg-nexus-900/20';
     case 'low_power':
-      return 'border-green-200 bg-green-50';
+      return 'border-green-700 bg-green-900/20';
     case 'high_performance':
-      return 'border-orange-200 bg-orange-50';
+      return 'border-orange-700 bg-orange-900/20';
     default:
-      return 'border-gray-200 bg-gray-50';
+      return 'border-gray-700 bg-[#1E2433]';
   }
 }
 
@@ -75,7 +75,7 @@ export function AlternativesComparison({ alternatives }: AlternativesComparisonP
           >
             <div className="flex items-center gap-2 mb-3">
               {getVariantIcon(variant)}
-              <span className="font-semibold text-gray-900">
+              <span className="font-semibold text-gray-100">
                 {formatVariantName(variant)}
               </span>
               {variant === 'current' && (
@@ -85,23 +85,23 @@ export function AlternativesComparison({ alternatives }: AlternativesComparisonP
 
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-500">Die Size</span>
+                <span className="text-gray-400">Die Size</span>
                 <span className="font-medium">{result.die_size_mm2.toFixed(1)} mm²</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Power</span>
+                <span className="text-gray-400">Power</span>
                 <span className="font-medium">{result.power_tdp_w.toFixed(1)} W</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Frequency</span>
+                <span className="text-gray-400">Frequency</span>
                 <span className="font-medium">{result.performance_ghz.toFixed(1)} GHz</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">AI TOPS</span>
+                <span className="text-gray-400">AI TOPS</span>
                 <span className="font-medium">{result.performance_tops.toFixed(0)}</span>
               </div>
-              <div className="flex justify-between pt-2 border-t border-gray-200">
-                <span className="text-gray-500">Efficiency</span>
+              <div className="flex justify-between pt-2 border-t border-gray-600">
+                <span className="text-gray-400">Efficiency</span>
                 <span className="font-semibold text-nexus-600">
                   {result.efficiency_tops_per_watt.toFixed(2)} TOPS/W
                 </span>
@@ -115,42 +115,42 @@ export function AlternativesComparison({ alternatives }: AlternativesComparisonP
       <div className="mt-6 overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-200">
-              <th className="text-left py-2 font-medium text-gray-500">Metric</th>
+            <tr className="border-b border-gray-700">
+              <th className="text-left py-2 font-medium text-gray-400">Metric</th>
               {alternatives.map(({ variant }) => (
-                <th key={variant} className="text-right py-2 font-medium text-gray-500">
+                <th key={variant} className="text-right py-2 font-medium text-gray-400">
                   {formatVariantName(variant)}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b border-gray-100">
-              <td className="py-2 text-gray-600">Die Size (mm²)</td>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 text-gray-300">Die Size (mm²)</td>
               {alternatives.map(({ variant, result }) => (
                 <td key={variant} className="py-2 text-right font-medium">
                   {result.die_size_mm2.toFixed(1)}
                 </td>
               ))}
             </tr>
-            <tr className="border-b border-gray-100">
-              <td className="py-2 text-gray-600">TDP (W)</td>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 text-gray-300">TDP (W)</td>
               {alternatives.map(({ variant, result }) => (
                 <td key={variant} className="py-2 text-right font-medium">
                   {result.power_tdp_w.toFixed(1)}
                 </td>
               ))}
             </tr>
-            <tr className="border-b border-gray-100">
-              <td className="py-2 text-gray-600">Frequency (GHz)</td>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 text-gray-300">Frequency (GHz)</td>
               {alternatives.map(({ variant, result }) => (
                 <td key={variant} className="py-2 text-right font-medium">
                   {result.performance_ghz.toFixed(1)}
                 </td>
               ))}
             </tr>
-            <tr className="border-b border-gray-100">
-              <td className="py-2 text-gray-600">AI Performance (TOPS)</td>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 text-gray-300">AI Performance (TOPS)</td>
               {alternatives.map(({ variant, result }) => (
                 <td key={variant} className="py-2 text-right font-medium">
                   {result.performance_tops.toFixed(0)}
@@ -158,7 +158,7 @@ export function AlternativesComparison({ alternatives }: AlternativesComparisonP
               ))}
             </tr>
             <tr>
-              <td className="py-2 text-gray-600 font-medium">Efficiency (TOPS/W)</td>
+              <td className="py-2 text-gray-300 font-medium">Efficiency (TOPS/W)</td>
               {alternatives.map(({ variant, result }) => (
                 <td key={variant} className="py-2 text-right font-bold text-nexus-600">
                   {result.efficiency_tops_per_watt.toFixed(3)}

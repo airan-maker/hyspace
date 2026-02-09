@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "key": "SUP_JSR",
+      "label": "MaterialSupplier",
+      "name": "JSR Corporation",
+      "properties": {
+        "country": "Japan",
+        "specialization": "EUV/ArF Photoresist",
+        "market_share_pct": 28,
+        "revenue_b_usd": 3.2,
+        "description": "EUV 포토레지스트 시장 선두, 인히비터 기술"
+      }
+    },
+    {
+      "key": "SUP_TOK",
+      "label": "MaterialSupplier",
+      "name": "Tokyo Ohka Kogyo (TOK)",
+      "properties": {
+        "country": "Japan",
+        "specialization": "Photoresist, Developer",
+        "market_share_pct": 22,
+        "description": "ArF/KrF 포토레지스트 강자"
+      }
+    },
+    {
+      "key": "SUP_SHINETSUCHEM",
+      "label": "MaterialSupplier",
+      "name": "Shin-Etsu Chemical",
+      "properties": {
+        "country": "Japan",
+        "specialization": "Silicon Wafer, Photomask Blank, Photoresist",
+        "market_share_wafer_pct": 32,
+        "revenue_b_usd": 15.8,
+        "description": "실리콘 웨이퍼 세계 1위, 포토마스크 블랭크 공급"
+      }
+    },
+    {
+      "key": "SUP_SUMCO",
+      "label": "MaterialSupplier",
+      "name": "SUMCO",
+      "properties": {
+        "country": "Japan",
+        "specialization": "Silicon Wafer",
+        "market_share_wafer_pct": 24,
+        "description": "실리콘 웨이퍼 세계 2위"
+      }
+    },
+    {
+      "key": "SUP_ENTEGRIS",
+      "label": "MaterialSupplier",
+      "name": "Entegris",
+      "properties": {
+        "country": "United States",
+        "specialization": "Filtration, CMP Slurry, Chemical Delivery",
+        "revenue_b_usd": 3.6,
+        "description": "반도체 공정 소재/필터/CMP 통합 솔루션"
+      }
+    },
+    {
+      "key": "SUP_AIRLIQUIDE",
+      "label": "MaterialSupplier",
+      "name": "Air Liquide",
+      "properties": {
+        "country": "France",
+        "specialization": "Electronic Specialty Gas",
+        "revenue_b_usd": 30.0,
+        "description": "반도체 공정용 특수 가스 (NF3, WF6, SiH4 등)"
+      }
+    },
+    {
+      "key": "SUP_SKHYNIX_HBM",
+      "label": "MaterialSupplier",
+      "name": "SK Hynix",
+      "properties": {
+        "country": "South Korea",
+        "specialization": "HBM, DRAM, NAND",
+        "revenue_b_usd": 35.3,
+        "market_share_hbm_pct": 53,
+        "description": "HBM 시장 점유율 1위, NVIDIA 독점 공급 (HBM3E)"
+      }
+    },
+    {
+      "key": "SUP_SAMSUNG_MEM",
+      "label": "MaterialSupplier",
+      "name": "Samsung Memory",
+      "properties": {
+        "country": "South Korea",
+        "specialization": "HBM, DRAM, NAND",
+        "revenue_b_usd": 50.2,
+        "market_share_hbm_pct": 35,
+        "description": "종합 메모리 세계 1위, HBM 2위"
+      }
+    },
+    {
+      "key": "SUP_MICRON",
+      "label": "MaterialSupplier",
+      "name": "Micron Technology",
+      "properties": {
+        "country": "United States",
+        "specialization": "HBM, DRAM, NAND",
+        "revenue_b_usd": 25.1,
+        "market_share_hbm_pct": 12,
+        "description": "미국 유일 메모리 대기업, HBM4 경쟁 참여"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "SUP_JSR",
+      "to_key": "EUV_RESIST",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_TOK",
+      "to_key": "ARF_RESIST",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_AIRLIQUIDE",
+      "to_key": "NF3",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_AIRLIQUIDE",
+      "to_key": "WF6",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_SKHYNIX_HBM",
+      "to_key": "HBM3",
+      "type": "SUPPLIES",
+      "properties": {
+        "product": "HBM3 16GB"
+      }
+    },
+    {
+      "from_key": "SUP_SKHYNIX_HBM",
+      "to_key": "HBM3E",
+      "type": "SUPPLIES",
+      "properties": {
+        "product": "HBM3E 36GB"
+      }
+    },
+    {
+      "from_key": "SUP_SAMSUNG_MEM",
+      "to_key": "HBM3",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_SAMSUNG_MEM",
+      "to_key": "HBM3E",
+      "type": "SUPPLIES",
+      "properties": {}
+    },
+    {
+      "from_key": "SUP_MICRON",
+      "to_key": "HBM3E",
+      "type": "SUPPLIES",
+      "properties": {}
+    }
+  ]
+}

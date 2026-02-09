@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "key": "IP_CORTEX_X4",
+      "label": "DesignIP",
+      "name": "ARM Cortex-X4",
+      "properties": {
+        "vendor": "ARM",
+        "type": "CPU_CORE",
+        "architecture": "ARMv9.2-A",
+        "microarchitecture": "Out-of-Order",
+        "issue_width": 10,
+        "description": "최고 성능 ARM CPU 코어, Snapdragon 8 Gen3 / Dimensity 9300 탑재"
+      }
+    },
+    {
+      "key": "IP_CORTEX_X5",
+      "label": "DesignIP",
+      "name": "ARM Cortex-X5",
+      "properties": {
+        "vendor": "ARM",
+        "type": "CPU_CORE",
+        "architecture": "ARMv9.2-A",
+        "description": "2025년 출시, X4 대비 IPC 15% 향상 예상"
+      }
+    },
+    {
+      "key": "IP_NEOVERSE_V3",
+      "label": "DesignIP",
+      "name": "ARM Neoverse V3",
+      "properties": {
+        "vendor": "ARM",
+        "type": "CPU_CORE",
+        "architecture": "ARMv9.2-A",
+        "target": "Server/Cloud",
+        "description": "서버용 ARM 코어, AWS Graviton4 / NVIDIA Grace 탑재"
+      }
+    },
+    {
+      "key": "IP_RISCV_P550",
+      "label": "DesignIP",
+      "name": "SiFive P550",
+      "properties": {
+        "vendor": "SiFive",
+        "type": "CPU_CORE",
+        "architecture": "RISC-V (RV64GBC)",
+        "description": "고성능 RISC-V 코어, Linux 지원"
+      }
+    },
+    {
+      "key": "IP_SYNOPSYS_PCIE6",
+      "label": "DesignIP",
+      "name": "Synopsys PCIe 6.0 PHY",
+      "properties": {
+        "vendor": "Synopsys",
+        "type": "PHY",
+        "protocol": "PCIe 6.0",
+        "data_rate_gtps": 64,
+        "description": "업계 최초 PCIe 6.0 PHY IP"
+      }
+    },
+    {
+      "key": "IP_CADENCE_224G",
+      "label": "DesignIP",
+      "name": "Cadence 224G SerDes",
+      "properties": {
+        "vendor": "Cadence",
+        "type": "SERDES",
+        "data_rate_gbps": 224,
+        "description": "차세대 224Gbps SerDes PHY, 800GbE/1.6TbE 지원"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "H100_SXM",
+      "to_key": "IP_SYNOPSYS_PCIE6",
+      "type": "USES_IP",
+      "properties": {
+        "note": "PCIe 5.0 version"
+      }
+    },
+    {
+      "from_key": "B200",
+      "to_key": "IP_SYNOPSYS_PCIE6",
+      "type": "USES_IP",
+      "properties": {}
+    }
+  ]
+}

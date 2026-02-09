@@ -40,7 +40,7 @@ function SliderInput({ label, value, min, max, step = 1, unit = '', onChange }: 
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label className="text-sm font-medium text-gray-700">{label}</label>
+        <label className="text-sm font-medium text-gray-300">{label}</label>
         <span className="text-sm font-semibold text-nexus-600">
           {value}{unit}
         </span>
@@ -72,11 +72,11 @@ interface SelectInputProps {
 function SelectInput({ label, value, options, onChange }: SelectInputProps) {
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium text-gray-700 block">{label}</label>
+      <label className="text-sm font-medium text-gray-300 block">{label}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
+        className="w-full px-3 py-2 border border-gray-600 bg-[#111420] rounded-lg text-sm focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
       >
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
@@ -146,12 +146,12 @@ export function WorkloadInputPanel({
       <div className="space-y-6">
         {/* Preset Selection */}
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-2">Load Preset</label>
+          <label className="text-sm font-medium text-gray-300 block mb-2">Load Preset</label>
           <div className="flex flex-wrap gap-2">
             {isPresetsLoading ? (
               <div className="animate-pulse flex gap-2">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-8 w-24 bg-gray-200 rounded-lg" />
+                  <div key={i} className="h-8 w-24 bg-gray-700 rounded-lg" />
                 ))}
               </div>
             ) : (
@@ -162,7 +162,7 @@ export function WorkloadInputPanel({
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                     selectedPresetId === preset.id
                       ? 'bg-nexus-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                   }`}
                   title={preset.description}
                 >
@@ -176,13 +176,13 @@ export function WorkloadInputPanel({
         {/* Workload Name & Type */}
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700 block">Name</label>
+            <label className="text-sm font-medium text-gray-300 block">Name</label>
             <input
               type="text"
               value={profile.name}
               onChange={(e) => onProfileChange({ name: e.target.value })}
               placeholder="My Workload"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
+              className="w-full px-3 py-2 border border-gray-600 bg-[#111420] rounded-lg text-sm focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
             />
           </div>
           <SelectInput
@@ -195,7 +195,7 @@ export function WorkloadInputPanel({
 
         {/* Compute Requirements Section */}
         <div className="border-t pt-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-gray-200 mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
             </svg>
@@ -244,7 +244,7 @@ export function WorkloadInputPanel({
 
         {/* Memory Requirements Section */}
         <div className="border-t pt-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-gray-200 mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
@@ -296,7 +296,7 @@ export function WorkloadInputPanel({
 
         {/* Power Constraints Section */}
         <div className="border-t pt-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-gray-200 mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
@@ -328,7 +328,7 @@ export function WorkloadInputPanel({
 
         {/* Deployment Context Section */}
         <div className="border-t pt-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-gray-200 mb-4 flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>

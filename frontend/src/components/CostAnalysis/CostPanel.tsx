@@ -32,10 +32,10 @@ export function CostPanel({
 }: CostPanelProps) {
   const marginColor = result
     ? result.gross_margin_percent >= 40
-      ? 'text-green-600'
+      ? 'text-green-400'
       : result.gross_margin_percent >= 25
-      ? 'text-yellow-600'
-      : 'text-red-600'
+      ? 'text-yellow-400'
+      : 'text-red-400'
     : 'text-gray-500';
 
   return (
@@ -50,13 +50,13 @@ export function CostPanel({
       {/* Volume & ASP Inputs */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-2">
+          <label className="text-sm font-medium text-gray-300 block mb-2">
             Annual Volume
           </label>
           <select
             value={volume}
             onChange={(e) => onVolumeChange(Number(e.target.value))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
+            className="w-full px-3 py-2 border border-gray-600 bg-[#111420] rounded-lg focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
           >
             <option value={10000}>10,000</option>
             <option value={50000}>50,000</option>
@@ -66,7 +66,7 @@ export function CostPanel({
           </select>
         </div>
         <div>
-          <label className="text-sm font-medium text-gray-700 block mb-2">
+          <label className="text-sm font-medium text-gray-300 block mb-2">
             Target ASP ($)
           </label>
           <input
@@ -76,66 +76,66 @@ export function CostPanel({
             min={10}
             max={1000}
             step={5}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
+            className="w-full px-3 py-2 border border-gray-600 bg-[#111420] rounded-lg focus:ring-2 focus:ring-nexus-500 focus:border-nexus-500"
           />
         </div>
       </div>
 
       {isLoading ? (
         <div className="animate-pulse space-y-4">
-          <div className="h-20 bg-gray-200 rounded-lg" />
-          <div className="h-48 bg-gray-200 rounded-lg" />
+          <div className="h-20 bg-gray-700 rounded-lg" />
+          <div className="h-48 bg-gray-700 rounded-lg" />
         </div>
       ) : result ? (
         <>
           {/* Gross Margin Highlight */}
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6 mb-6 text-center">
-            <p className="text-sm text-gray-500 mb-1">Gross Margin</p>
+          <div className="bg-gradient-to-r from-[#1E2433] to-[#232938] rounded-xl p-6 mb-6 text-center">
+            <p className="text-sm text-gray-400 mb-1">Gross Margin</p>
             <p className={`text-4xl font-bold ${marginColor}`}>
               {result.gross_margin_percent.toFixed(1)}%
             </p>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-400 mt-1">
               {formatCurrency(result.gross_margin)} per unit
             </p>
           </div>
 
           {/* Cost Breakdown Table */}
           <div className="space-y-3">
-            <div className="flex justify-between py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Wafer Cost</span>
+            <div className="flex justify-between py-2 border-b border-gray-700">
+              <span className="text-sm text-gray-400">Wafer Cost</span>
               <span className="text-sm font-medium">{formatCurrency(result.wafer_cost)}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Die Cost (raw)</span>
+            <div className="flex justify-between py-2 border-b border-gray-700">
+              <span className="text-sm text-gray-400">Die Cost (raw)</span>
               <span className="text-sm font-medium">{formatCurrency(result.die_cost)}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Good Die Cost (yield adjusted)</span>
+            <div className="flex justify-between py-2 border-b border-gray-700">
+              <span className="text-sm text-gray-400">Good Die Cost (yield adjusted)</span>
               <span className="text-sm font-medium">{formatCurrency(result.good_die_cost)}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Package Cost</span>
+            <div className="flex justify-between py-2 border-b border-gray-700">
+              <span className="text-sm text-gray-400">Package Cost</span>
               <span className="text-sm font-medium">{formatCurrency(result.package_cost)}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Test Cost</span>
+            <div className="flex justify-between py-2 border-b border-gray-700">
+              <span className="text-sm text-gray-400">Test Cost</span>
               <span className="text-sm font-medium">{formatCurrency(result.test_cost)}</span>
             </div>
-            <div className="flex justify-between py-2 bg-nexus-50 rounded-lg px-3 -mx-3">
-              <span className="text-sm font-semibold text-nexus-700">Total Unit Cost</span>
-              <span className="text-sm font-bold text-nexus-700">{formatCurrency(result.total_unit_cost)}</span>
+            <div className="flex justify-between py-2 bg-nexus-900/20 rounded-lg px-3 -mx-3">
+              <span className="text-sm font-semibold text-nexus-400">Total Unit Cost</span>
+              <span className="text-sm font-bold text-nexus-400">{formatCurrency(result.total_unit_cost)}</span>
             </div>
           </div>
 
           {/* Additional Metrics */}
           <div className="grid grid-cols-2 gap-4 mt-6">
-            <div className="bg-gray-50 rounded-lg p-3 text-center">
-              <p className="text-xs text-gray-500">Net Die/Wafer</p>
-              <p className="text-lg font-bold text-gray-900">{formatNumber(result.net_die_per_wafer)}</p>
+            <div className="bg-[#1E2433] rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400">Net Die/Wafer</p>
+              <p className="text-lg font-bold text-gray-100">{formatNumber(result.net_die_per_wafer)}</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-3 text-center">
-              <p className="text-xs text-gray-500">Yield Rate</p>
-              <p className="text-lg font-bold text-gray-900">{result.yield_rate.toFixed(1)}%</p>
+            <div className="bg-[#1E2433] rounded-lg p-3 text-center">
+              <p className="text-xs text-gray-400">Yield Rate</p>
+              <p className="text-lg font-bold text-gray-100">{result.yield_rate.toFixed(1)}%</p>
             </div>
           </div>
         </>

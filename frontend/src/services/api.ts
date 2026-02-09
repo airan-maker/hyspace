@@ -286,4 +286,153 @@ export async function runCypherQuery(cypher: string, params?: Record<string, unk
   return data;
 }
 
+// ─────────────────────────────────────────────────────
+// AI Insights API
+// ─────────────────────────────────────────────────────
+
+export interface InsightRequest {
+  query_type: string;
+  results: unknown;
+}
+
+export async function generateInsight(queryType: string, results: unknown): Promise<{ insight: string; query_type: string }> {
+  const { data } = await api.post('/graph/insight', { query_type: queryType, results });
+  return data;
+}
+
+export function generateInsightStreamURL(): string {
+  return `${API_BASE_URL}/api/graph/insight/stream`;
+}
+
+// ─────────────────────────────────────────────────────
+// What-If Simulation API
+// ─────────────────────────────────────────────────────
+
+export interface WhatIfPreset {
+  id: string;
+  label: string;
+  description: string;
+  scenario_type: string;
+  target_entity: string;
+  delay_months: number;
+}
+
+export interface AffectedNode {
+  id: number;
+  label: string;
+  name: string;
+  severity: string;
+  impact_reason: string;
+}
+
+export interface WhatIfResponse {
+  scenario: Record<string, unknown>;
+  affected_nodes: AffectedNode[];
+  affected_node_ids: number[];
+  total_affected: number;
+  alternatives: Record<string, unknown>[];
+  narrative: string | null;
+}
+
+export async function getWhatIfPresets(): Promise<{ presets: WhatIfPreset[] }> {
+  const { data } = await api.get('/graph/whatif/presets');
+  return data;
+}
+
+export async function executeWhatIf(
+  scenarioType: string,
+  targetEntity: string,
+  delayMonths: number,
+  includeNarrative: boolean = true,
+): Promise<WhatIfResponse> {
+  const { data } = await api.post('/graph/whatif', {
+    scenario_type: scenarioType,
+    target_entity: targetEntity,
+    delay_months: delayMonths,
+    include_ai_narrative: includeNarrative,
+  });
+  return data;
+}
+
+// ── Graph Search ──
+
+export interface SearchResultNode {
+  id: string;
+  name: string;
+  label: string;
+  labels: string[];
+  connection_count: number;
+  properties: Record<string, unknown>;
+}
+
+export async function searchGraphNodes(params: {
+  q?: string;
+  label?: string;
+  risk?: string;
+  limit?: number;
+}): Promise<{ results: SearchResultNode[]; count: number }> {
+  const { data } = await api.get('/graph/search', { params });
+  return data;
+}
+
+export async function getGraphLabels(): Promise<{ labels: string[] }> {
+  const { data } = await api.get('/graph/labels');
+  return data;
+}
+
+export interface TemplateOptions {
+  accelerators: string[];
+  equipment_vendors: string[];
+  materials: string[];
+  all_nodes: string[];
+}
+
+export async function getTemplateOptions(): Promise<TemplateOptions> {
+  const { data } = await api.get<TemplateOptions>('/graph/template-options');
+  return data;
+}
+
+// ── Geospatial ──
+
+export interface SupplierLocation {
+  vendor: string;
+  lat: number;
+  lng: number;
+  country: string;
+  city: string;
+  node_label: string;
+  node_name: string;
+  risk: string | null;
+  criticality: string | null;
+}
+
+export async function getSupplierLocations(): Promise<{ suppliers: SupplierLocation[]; count: number }> {
+  const { data } = await api.get('/graph/geospatial/suppliers');
+  return data;
+}
+
+// ── Yield-Graph Bridge ──
+
+export interface GraphContextNode {
+  id: string;
+  label: string;
+  name: string;
+  properties: Record<string, unknown>;
+}
+
+export interface GraphContextResult {
+  nodes: GraphContextNode[];
+  relationships: { type: string; from: string; to: string }[];
+  suggested_queries: string[];
+}
+
+export async function getGraphContextForEvent(params: {
+  process_step?: string;
+  equipment_id?: string;
+  material?: string;
+}): Promise<GraphContextResult> {
+  const { data } = await api.post('/graph/context-from-event', params);
+  return data;
+}
+
 export default api;

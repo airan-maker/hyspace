@@ -1,0 +1,74 @@
+[
+  {
+    "source": "Wikipedia - PCIe",
+    "url": "https://en.wikipedia.org/wiki/PCI_Express",
+    "content": "PCI Express (Peripheral Component Interconnect Express), officially abbreviated as PCIe, is a high-speed standard used to connect hardware components inside computers. It is designed to replace older expansion bus standards such as PCI, PCI-X and AGP. Developed and maintained by the PCI-SIG (PCI Special Interest Group), PCIe is commonly used to connect graphics cards, sound cards, Wi-Fi and Ethernet adapters, and storage devices such as solid-state drives and hard disk drives.\nCompared to earlier standards, PCIe supports faster data transfer, uses fewer pins, takes up less space, and allows devices to be added or removed while the computer is running (hot swapping). It also includes better error detection and supports newer features like I/O virtualization for advanced computing needs.\nPCIe connections are made through lanes, which are pairs of conductors that send and receive data. Devices can use one or more lanes depending on how much data they need to transfer. PCIe technology is also used in laptop expansion cards (like ExpressCard) and in storage connectors such as M.2, U.2, and SATA Express.\n\n",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - CXL",
+    "url": "https://en.wikipedia.org/wiki/Compute_Express_Link",
+    "content": "Compute Express Link (CXL) is an open standard interconnect for high-speed, high capacity CPU-to-device and CPU-to-memory connections, designed for high performance data center computers. CXL is built on the serial PCI Express (PCIe) physical and electrical interface and includes PCIe-based block input/output protocol (CXL.io) and new cache-coherent protocols for accessing system memory (CXL.cache) and device memory (CXL.mem). The serial communication and pooling capabilities allows CXL memory to overcome performance and socket packaging limitations of common DIMM memory when implementing high storage capacities.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia - NVLink",
+    "url": "https://en.wikipedia.org/wiki/NVLink",
+    "content": "NVLink is a wire-based serial, multi-lane, near-range, communications link developed by Nvidia. Unlike PCI Express, a device can consist of multiple NVLinks, and devices can use mesh networking to communicate instead of a central hub/switch. The protocol was first announced in March 2014 and uses a proprietary high-speed signaling interconnect (NVHS).\nFor small numbers of GPUs, the NVLink lanes on a single device are sufficient for an all-to-all mesh connectivity. To accommodate higher GPU counts, NVLink since 2018 use a packet-switched architecture, where a central switch can serve up to 32 two-lane ports. The NVSwitch for NVLink 4.0 can produce some simple computation of its own (e.g., sum, broadcast) to reduce the need for communication thanks to the \"SHARP\" accelerator.",
+    "type": "wikipedia"
+  },
+  {
+    "source": "Wikipedia: USB4",
+    "url": "https://en.wikipedia.org/wiki/USB4",
+    "content": "Universal Serial Bus 4 (USB4), sometimes erroneously referred to as USB 4.0, is the most recent technical specification of the USB (Universal Serial Bus) data communication standard. The USB Implementers Forum originally announced USB4 in 2019.\nUSB4 enables multiple devices to dynamically share a single high-speed data link. USB4 defines bit rates of 20 Gbit/s, 40 Gbit/s and 80 Gbit/s. USB4 is only defined for USB-C connectors and its Type-C specification regulates the connector, cables and also power delivery features across all uses of USB-C cables, in part with the USB Power Delivery specification.\nThe USB4 standard mandates backward compatibility to USB 3.x and dedicated backward compatibility with USB 2.0. The dynamic sharing of bandwidth of a USB4 connection is achieved by encapsulating multiple virtual connections (\"tunnels\") of other protocols, such as USB 3.x, DisplayPort and PCI Express.\nUSB4 is based on the Thunderbolt 3 protocol. However, it is different enough that backward compatibility to Thunderbolt 3 is optional for many device types.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: UCIe",
+    "url": "https://en.wikipedia.org/wiki/UCIe",
+    "content": "Universal Chiplet Interconnect Express (UCIe) is an open specification for a die-to-die interconnect and serial bus between chiplets. It is co-developed by AMD, Arm, ASE Group, Google Cloud, Intel, Meta, Microsoft, Qualcomm, Samsung, and TSMC.\nIn August 2022, Alibaba Group and Nvidia joined as board members.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Corporate: NVIDIA newsroom",
+    "url": "https://nvidianews.nvidia.com/news/latest",
+    "content": "[Corporate News]\n- Mercedes-Benz Unveils New S-Class Built on NVIDIA DRIVE AV, Which Enables an L4-Ready Architecture (January 29, 2026)\n  Mercedes-Benz is marking 140 years of automotive innovation with a new S-Class built for the AI era, bringing together automotive safety and NVIDIA’s advanced autonomous driving platform to enable a l\n- Mercedes-Benz Unveils New S-Class Built on NVIDIA DRIVE AV, Which Enables an L4-Ready Architecture (January 29, 2026)\n  Mercedes-Benz is marking 140 years of automotive innovation with a new S-Class built for the AI era, bringing together automotive safety and NVIDIA’s advanced autonomous driving platform to enable a l\n- Mercedes-Benz Unveils New S-Class Built on NVIDIA DRIVE AV, Which Enables an L4-Ready Architecture (January 29, 2026)\n  Mercedes-Benz is marking 140 years of automotive innovation with a new S-Class built for the AI era, bringing together automotive safety and NVIDIA’s advanced autonomous driving platform to enable a l\n- Read Blog\n- Into the Omniverse: Physical AI Open Models and Frameworks Advance Robots and Autonomous Systems (January 29, 2026)\n  Open source has become essential for driving innovation in robotics and autonomy. By providing access to critical infrastructure — from simulation frameworks to AI models — NVIDIA is enabling collabor\n- Into the Omniverse: Physical AI Open Models and Frameworks Advance Robots and Autonomous Systems (January 29, 2026)\n  Open source has become essential for driving innovation in robotics and autonomy. By providing access to critical infrastructure — from simulation frameworks to AI models — NVIDIA is enabling collabor\n- Into the Omniverse: Physical AI Open Models and Frameworks Advance Robots and Autonomous Systems (January 29, 2026)\n  Open source has become essential for driving innovation in robotics and autonomy. By providing access to critical infrastructure — from simulation frameworks to AI models — NVIDIA is enabling collabor\n- Read Blog\n- GeForce NOW Brings GeForce RTX Gaming to Linux PCs (January 29, 2026)\n  Get ready to game — the native GeForce NOW app for Linux PCs is now available in beta, letting Linux desktops tap directly into GeForce RTX performance from the cloud. Alongside the expansion comes te\n- GeForce NOW Brings GeForce RTX Gaming to Linux PCs (January 29, 2026)\n  Get ready to game — the native GeForce NOW app for Linux PCs is now available in beta, letting Linux desktops tap directly into GeForce RTX performance from the cloud. Alongside the expansion comes te\n- GeForce NOW Brings GeForce RTX Gaming to Linux PCs (January 29, 2026)\n  Get ready to game — the native GeForce NOW app for Linux PCs is now available in beta, letting Linux desktops tap directly into GeForce RTX performance from the cloud. Alongside the expansion comes te",
+    "type": "corporate_news"
+  },
+  {
+    "source": "Wikipedia: UALink",
+    "url": "https://en.wikipedia.org/wiki/UALink",
+    "content": "Ultra Accelerator Link (UALink) is an open specification for a die-to-die interconnect and serial bus between AI accelerators. It is co-developed by Alibaba, AMD, Apple, Astera Labs, AWS, Cisco, Google, Hewlett Packard Enterprise, Intel, Meta, Microsoft and Synopsys. The UALink Consortium officially incorporated as an organization and electronics industry consortium in 2024, for promoting and advancing UALink.\nIts first specification will provide interconnectivity specifically for a scalable network. The initial 1.0 version 200Gbps UALink specification, is based on the IEEE P802.3dj 200 Gb/s (Ultra Ethernet) PHY Layer. Each system node is made up of a host and as many accelerators as needed, and is managed by one OS image. The accelerators can be connected to the host using a variety of interconnect protocols (CXL, PCIe, XGMI, CHI c2c, Infinity Fabric). UALink Switches (ULS) connect up to 1024 accelerators within an AI 'pod', where each Accelerator is assigned a unique 10-bit routing identifier. Each UALink Switch port connects to a distinct Accelerator. AMD Infinity Fabric is expected to be the main shared-memory protocol.\nThe specification was due to be available to Contributor Members in 2024. The 1.0 version (UALink_200) was released to the public in 2025. Members of the public can download an \"evaluation copy\" after providing contact information.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Synopsys",
+    "url": "https://en.wikipedia.org/wiki/Synopsys",
+    "content": "Synopsys, Inc. is an American multinational electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on design and verification of silicon chips, electronic system-level design and verification, and reusable components (intellectual property). Synopsys supplies tools and services to the semiconductor design and manufacturing industry. Products include tools for implementation of digital and analog circuits, simulators, and debugging environments that assist in the design of chips and computer systems. In 2024, Synopsys was listed as the 12th largest software company in the world.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: List of AMD Ryzen processors",
+    "url": "https://en.wikipedia.org/wiki/List_of_AMD_Ryzen_processors",
+    "content": "The Ryzen family is an x86-64 microprocessor family from AMD, based on the Zen microarchitecture. The Ryzen lineup includes Ryzen 3, Ryzen 5, Ryzen 7, Ryzen 9, and Ryzen Threadripper with up to 96 cores. All consumer desktop Ryzens (except PRO models) and all mobile processors with the HX suffix have an unlocked multiplier. In addition, all support Simultaneous Multithreading (SMT) except earlier Zen/Zen+ based desktop and mobile Ryzen 3, and some models of Zen 2 based mobile Ryzen.",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: Nvidia",
+    "url": "https://en.wikipedia.org/wiki/Nvidia",
+    "content": "Nvidia Corporation ( en-VID-ee-ə) is an American technology company headquartered in Santa Clara, California. Founded in 1993 by Jensen Huang, Chris Malachowsky, and Curtis Priem, it develops graphics processing units (GPUs), systems on chips (SoCs), and application programming interfaces (APIs) for data science, high-performance computing, video games, and mobile and automotive applications. Nvidia has been described as a Big Tech company.\nOriginally focused on GPUs for video gaming, Nvidia broadened their use into other markets, including artificial intelligence (AI), professional visualization, and supercomputing. The company's product lines include GeForce GPUs for gaming and creative workloads, and professional GPUs for edge computing, scientific research, and industrial applications. As of the first quarter of 2025, Nvidia held a 92% share of the discrete desktop and laptop GPU market.\nIn the early 2000s, the company invested over a billion dollars to develop CUDA, a software platform and API that enabled GPUs to run massively parallel programs for a broad range of compute-intensive applications. As a result, as of 2025, Nvidia controlled more than 80% of the market for GPUs used in training and deploying AI models, and provided chips for over 75% of the world's TOP500 supercomputers. The company has also expanded into gaming hardware and services, with products such as the Shield Portable, Shield Tablet, and Shield TV, and operates the GeForce Now cloud gaming service. Furthermore, it has developed the Tegra line of mobile processors for smartphones, tablets, and automotive infotainment systems. \nIn 2023, Nvidia became the seventh US company to reach a US$1 trillion valuation. It became the first company in the world to surpass US$4 trillion and US$5 trillion milestones in market capitalization in 2025, driven by rising global demand for AI datacenter hardware in the midst of the AI boom. For its strength, size and market capitalization, Nvidia has been selected to be one of Bloomberg's \"Magnificent Seven\", the seven biggest companies on the stock market in these regards.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: List of Intel Core processors",
+    "url": "https://en.wikipedia.org/wiki/List_of_Intel_Core_processors",
+    "content": "The following is a list of Intel Core processors. This includes Intel's original Core (Solo/Duo) mobile series based on the Enhanced Pentium M microarchitecture; as well as its Core 2– (Solo/Duo/Quad/Extreme), Core i3–, Core i5–, Core i7–, Core i9–, Core M– (m3/m5/m7/m9), Core 3–, Core 5–, Core 7–, and Core 9–branded processors.\n\n",
+    "type": "wikipedia_api"
+  },
+  {
+    "source": "Wikipedia: 12-inch MacBook",
+    "url": "https://en.wikipedia.org/wiki/12-inch_MacBook",
+    "content": "The 12-inch MacBook (also called the Retina MacBook, officially marketed as the new MacBook) is a discontinued Mac laptop made by Apple, which sat between the MacBook Air and MacBook Pro in Apple's laptop lineup. It shares the same name as its predecessor that was discontinued three years prior to the release of this one.\nIntroduced in March 2015, it was more compact than any other notebook in the MacBook family at the time and included a Retina display, fanless design, and a Butterfly keyboard with lower key travel. It only had a single USB-C port, used for both power and data. It was revised in 2017, and discontinued in July 2019, a year after the release of the MacBook Air with Retina display.",
+    "type": "wikipedia_api"
+  }
+]

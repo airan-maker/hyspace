@@ -12,7 +12,7 @@ interface Props {
 export default function YieldTrendChart({ data }: Props) {
   if (!data || data.length === 0) {
     return (
-      <div className="h-64 flex items-center justify-center text-gray-500">
+      <div className="h-64 flex items-center justify-center text-gray-400">
         데이터가 없습니다
       </div>
     );
@@ -69,8 +69,8 @@ export default function YieldTrendChart({ data }: Props) {
                 y1={y}
                 x2={chartWidth - padding}
                 y2={y}
-                stroke="#e5e7eb"
-                strokeWidth="0.5"
+                stroke="#374151"
+                strokeWidth="0.3"
               />
             );
           })}
@@ -82,7 +82,7 @@ export default function YieldTrendChart({ data }: Props) {
             x2={chartWidth - padding}
             y2={targetY}
             stroke="#ef4444"
-            strokeWidth="0.5"
+            strokeWidth="0.3"
             strokeDasharray="2,2"
           />
 
@@ -94,7 +94,7 @@ export default function YieldTrendChart({ data }: Props) {
           />
 
           {/* Line */}
-          <path d={linePath} fill="none" stroke="#3b82f6" strokeWidth="1.5" />
+          <path d={linePath} fill="none" stroke="#3b82f6" strokeWidth="0.5" />
 
           {/* Points */}
           {points.map((p, i) => (
@@ -102,7 +102,7 @@ export default function YieldTrendChart({ data }: Props) {
               key={i}
               cx={p.x}
               cy={p.y}
-              r="1.5"
+              r="0.6"
               fill="#3b82f6"
               className="hover:r-3 transition-all"
             />
@@ -118,7 +118,7 @@ export default function YieldTrendChart({ data }: Props) {
         </svg>
 
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-500 py-2">
+        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-400 py-2">
           <span>{maxYield.toFixed(0)}%</span>
           <span>{((maxYield + minYield) / 2).toFixed(0)}%</span>
           <span>{minYield.toFixed(0)}%</span>
@@ -129,28 +129,28 @@ export default function YieldTrendChart({ data }: Props) {
       <div className="flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-2">
           <div className="w-4 h-0.5 bg-blue-500"></div>
-          <span className="text-gray-600">수율</span>
+          <span className="text-gray-400">수율</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-0.5 bg-red-500 border-dashed"></div>
-          <span className="text-gray-600">목표 (92%)</span>
+          <span className="text-gray-400">목표 (92%)</span>
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 text-center text-sm">
         <div>
-          <p className="text-gray-500">평균</p>
-          <p className="font-semibold text-gray-900">
+          <p className="text-gray-400">평균</p>
+          <p className="font-semibold text-gray-100">
             {(yields.reduce((a, b) => a + b, 0) / yields.length).toFixed(1)}%
           </p>
         </div>
         <div>
-          <p className="text-gray-500">최고</p>
+          <p className="text-gray-400">최고</p>
           <p className="font-semibold text-green-600">{Math.max(...yields).toFixed(1)}%</p>
         </div>
         <div>
-          <p className="text-gray-500">최저</p>
+          <p className="text-gray-400">최저</p>
           <p className="font-semibold text-red-600">{Math.min(...yields).toFixed(1)}%</p>
         </div>
       </div>

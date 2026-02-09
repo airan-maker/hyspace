@@ -1,0 +1,1 @@
+{"params": {"action": "query", "list": "search", "srsearch": "semiconductor photoresist suppliers JSR TOK Shin-Etsu market share", "srlimit": 4, "srnamespace": "0", "format": "json", "utf8": "1"}, "data": {"batchcomplete": "", "query": {"searchinfo": {"totalhits": 0}, "search": []}}, "fetched_at": "2026-01-31T15:18:04.982041"}

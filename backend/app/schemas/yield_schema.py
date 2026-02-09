@@ -22,7 +22,9 @@ class SeverityEnum(str, Enum):
     LOW = "LOW"
     MEDIUM = "MEDIUM"
     HIGH = "HIGH"
+    MAJOR = "MAJOR"
     CRITICAL = "CRITICAL"
+    CATASTROPHIC = "CATASTROPHIC"
 
 
 class RootCauseTypeEnum(str, Enum):
@@ -69,7 +71,9 @@ class WaferRecordResponse(WaferRecordBase):
 
 # Root Cause Schema
 class RootCause(BaseModel):
-    cause_type: RootCauseTypeEnum
+    model_config = {"populate_by_name": True}
+
+    cause_type: RootCauseTypeEnum = Field(alias="type")
     entity_id: str = Field(..., description="관련 엔티티 ID (장비ID, 재료 배치ID 등)")
     description: str
     probability: float = Field(..., ge=0, le=100, description="원인일 확률 (%)")

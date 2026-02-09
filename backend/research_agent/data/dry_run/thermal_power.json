@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "key": "THERMAL_AIR",
+      "label": "ThermalSolution",
+      "name": "Air Cooling (Heatsink + Fan)",
+      "properties": {
+        "type": "AIR",
+        "max_tdp_w": 350,
+        "thermal_resistance_c_per_w": 0.15,
+        "description": "전통적 공냉, TDP 350W 이하 적합"
+      }
+    },
+    {
+      "key": "THERMAL_DLC",
+      "label": "ThermalSolution",
+      "name": "Direct Liquid Cooling (Cold Plate)",
+      "properties": {
+        "type": "LIQUID",
+        "max_tdp_w": 1200,
+        "thermal_resistance_c_per_w": 0.05,
+        "coolant": "Water/Glycol",
+        "description": "콜드플레이트 직접 수냉, H100/B200 데이터센터 표준"
+      }
+    },
+    {
+      "key": "THERMAL_IMMERSION",
+      "label": "ThermalSolution",
+      "name": "Single-Phase Immersion Cooling",
+      "properties": {
+        "type": "IMMERSION",
+        "max_tdp_w": 2000,
+        "thermal_resistance_c_per_w": 0.02,
+        "coolant": "Dielectric Fluid (3M Novec/Fluorinert)",
+        "description": "서버를 냉각유에 침지, 1000W+ AI 가속기용"
+      }
+    },
+    {
+      "key": "THERMAL_2PHASE",
+      "label": "ThermalSolution",
+      "name": "Two-Phase Immersion Cooling",
+      "properties": {
+        "type": "IMMERSION",
+        "max_tdp_w": 3000,
+        "thermal_resistance_c_per_w": 0.01,
+        "description": "비등/응축 사이클 이용, 가장 높은 냉각 효율"
+      }
+    },
+    {
+      "key": "THERMAL_REAR_DOOR",
+      "label": "ThermalSolution",
+      "name": "Rear-Door Heat Exchanger",
+      "properties": {
+        "type": "LIQUID",
+        "max_tdp_w": 800,
+        "description": "랙 뒷면 열교환기, 기존 데이터센터 레트로핏"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "H100_SXM",
+      "to_key": "THERMAL_DLC",
+      "type": "COOLED_BY",
+      "properties": {
+        "note": "NVIDIA recommends DLC"
+      }
+    },
+    {
+      "from_key": "B200",
+      "to_key": "THERMAL_DLC",
+      "type": "COOLED_BY",
+      "properties": {
+        "note": "1000W TDP requires liquid"
+      }
+    },
+    {
+      "from_key": "B200",
+      "to_key": "THERMAL_IMMERSION",
+      "type": "COOLED_BY",
+      "properties": {
+        "note": "Also immersion option"
+      }
+    }
+  ]
+}

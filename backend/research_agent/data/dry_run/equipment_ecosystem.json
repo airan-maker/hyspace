@@ -1,0 +1,179 @@
+{
+  "nodes": [
+    {
+      "key": "VENDOR_ASML",
+      "label": "EquipmentVendor",
+      "name": "ASML",
+      "properties": {
+        "country": "Netherlands",
+        "hq": "Veldhoven",
+        "revenue_b_usd": 27.6,
+        "market_segment": "Lithography",
+        "founded_year": 1984,
+        "employees": 42000,
+        "market_share_litho_pct": 90,
+        "description": "세계 유일 EUV 장비 제조사, 반도체 장비 시가총액 1위"
+      }
+    },
+    {
+      "key": "VENDOR_AMAT",
+      "label": "EquipmentVendor",
+      "name": "Applied Materials",
+      "properties": {
+        "country": "United States",
+        "hq": "Santa Clara, CA",
+        "revenue_b_usd": 26.5,
+        "market_segment": "Deposition, Etch, CMP",
+        "founded_year": 1967,
+        "employees": 35000,
+        "description": "세계 최대 반도체 장비 회사 (매출 기준)"
+      }
+    },
+    {
+      "key": "VENDOR_LAM",
+      "label": "EquipmentVendor",
+      "name": "Lam Research",
+      "properties": {
+        "country": "United States",
+        "hq": "Fremont, CA",
+        "revenue_b_usd": 17.4,
+        "market_segment": "Etch, Deposition, Clean",
+        "founded_year": 1980,
+        "description": "에칭/증착 장비 선도, 3D NAND/GAA 공정 필수"
+      }
+    },
+    {
+      "key": "VENDOR_TEL",
+      "label": "EquipmentVendor",
+      "name": "Tokyo Electron (TEL)",
+      "properties": {
+        "country": "Japan",
+        "hq": "Tokyo",
+        "revenue_b_usd": 16.2,
+        "market_segment": "Coater/Developer, Etch, Deposition",
+        "founded_year": 1963,
+        "description": "코터/디벨로퍼 1위, EUV 트랙 필수 장비"
+      }
+    },
+    {
+      "key": "VENDOR_KLA",
+      "label": "EquipmentVendor",
+      "name": "KLA Corporation",
+      "properties": {
+        "country": "United States",
+        "hq": "Milpitas, CA",
+        "revenue_b_usd": 10.5,
+        "market_segment": "Inspection, Metrology",
+        "founded_year": 1975,
+        "description": "웨이퍼 검사/계측 장비 1위, 수율 관리의 핵심"
+      }
+    },
+    {
+      "key": "ASML_NXE_3800E",
+      "label": "EquipmentModel",
+      "name": "ASML NXE:3800E",
+      "properties": {
+        "vendor_key": "VENDOR_ASML",
+        "category": "LITHOGRAPHY",
+        "generation": "EUV 0.33NA",
+        "min_node_nm": 3,
+        "throughput_wph": 220,
+        "wavelength_nm": 13.5,
+        "numerical_aperture": 0.33,
+        "resolution_nm": 13,
+        "price_m_usd": 200,
+        "description": "현재 가장 많이 사용되는 EUV 스캐너"
+      }
+    },
+    {
+      "key": "ASML_NXE_3600D",
+      "label": "EquipmentModel",
+      "name": "ASML NXE:3600D",
+      "properties": {
+        "vendor_key": "VENDOR_ASML",
+        "category": "LITHOGRAPHY",
+        "generation": "EUV 0.33NA",
+        "min_node_nm": 5,
+        "throughput_wph": 185,
+        "wavelength_nm": 13.5,
+        "numerical_aperture": 0.33,
+        "price_m_usd": 180,
+        "description": "이전 세대 EUV 스캐너"
+      }
+    },
+    {
+      "key": "ASML_EXE_5000",
+      "label": "EquipmentModel",
+      "name": "ASML EXE:5000 (High-NA)",
+      "properties": {
+        "vendor_key": "VENDOR_ASML",
+        "category": "LITHOGRAPHY",
+        "generation": "High-NA EUV 0.55NA",
+        "min_node_nm": 1.4,
+        "throughput_wph": 185,
+        "wavelength_nm": 13.5,
+        "numerical_aperture": 0.55,
+        "resolution_nm": 8,
+        "price_m_usd": 380,
+        "description": "High-NA EUV, 2nm 이하 필수, 인텔 최초 도입 (2025)"
+      }
+    },
+    {
+      "key": "LAM_VANTEX",
+      "label": "EquipmentModel",
+      "name": "Lam Vantex",
+      "properties": {
+        "vendor_key": "VENDOR_LAM",
+        "category": "ETCH",
+        "generation": "Dielectric Etch",
+        "min_node_nm": 3,
+        "throughput_wph": 120,
+        "description": "GAA/3D 구조용 고선택비 유전체 에칭"
+      }
+    },
+    {
+      "key": "AMAT_CENTURA_SCULPTA",
+      "label": "EquipmentModel",
+      "name": "Applied Centura Sculpta",
+      "properties": {
+        "vendor_key": "VENDOR_AMAT",
+        "category": "ETCH",
+        "generation": "Pattern Shaping",
+        "min_node_nm": 3,
+        "description": "EUV 패턴 보정용, 마스크 공정 수 감소"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "VENDOR_ASML",
+      "to_key": "ASML_NXE_3800E",
+      "type": "MANUFACTURES_EQUIP",
+      "properties": {}
+    },
+    {
+      "from_key": "VENDOR_ASML",
+      "to_key": "ASML_NXE_3600D",
+      "type": "MANUFACTURES_EQUIP",
+      "properties": {}
+    },
+    {
+      "from_key": "VENDOR_ASML",
+      "to_key": "ASML_EXE_5000",
+      "type": "MANUFACTURES_EQUIP",
+      "properties": {}
+    },
+    {
+      "from_key": "VENDOR_LAM",
+      "to_key": "LAM_VANTEX",
+      "type": "MANUFACTURES_EQUIP",
+      "properties": {}
+    },
+    {
+      "from_key": "VENDOR_AMAT",
+      "to_key": "AMAT_CENTURA_SCULPTA",
+      "type": "MANUFACTURES_EQUIP",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"params": {"action": "query", "titles": "Universal Chiplet Interconnect Express", "prop": "extracts", "exintro": "0", "explaintext": "1", "exsectionformat": "plain", "format": "json", "utf8": "1"}, "data": {"batchcomplete": "", "query": {"pages": {"-1": {"ns": 0, "title": "Universal Chiplet Interconnect Express", "missing": ""}}}}, "fetched_at": "2026-01-31T15:17:21.164789"}

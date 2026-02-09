@@ -29,8 +29,8 @@ function PPAOptimizerPage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">PPA & Cost Optimizer</h1>
-        <p className="text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold text-gray-100">PPA & Cost Optimizer</h1>
+        <p className="text-gray-400 mt-1">
           Configure your chip architecture and analyze power, performance, area trade-offs with manufacturing costs.
         </p>
       </div>
@@ -89,8 +89,8 @@ function WorkloadAnalyzerPage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Workload Analyzer</h1>
-        <p className="text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold text-gray-100">Workload Analyzer</h1>
+        <p className="text-gray-400 mt-1">
           Define your workload requirements and get optimized chip architecture recommendations.
         </p>
       </div>
@@ -140,18 +140,18 @@ function HistoryPage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Simulation History</h1>
-        <p className="text-gray-500 mt-1">
+        <h1 className="text-2xl font-bold text-gray-100">Simulation History</h1>
+        <p className="text-gray-400 mt-1">
           View and compare your past simulations.
         </p>
       </div>
 
       <div className="card">
         <div className="text-center py-12">
-          <svg className="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <p className="text-gray-500">Simulation history will be available soon</p>
+          <p className="text-gray-400">Simulation history will be available soon</p>
         </div>
       </div>
     </>
@@ -161,6 +161,11 @@ function HistoryPage() {
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('ppa');
 
+  // GraphExplorer renders as a full-screen immersive page (outside normal Layout)
+  if (currentPage === 'graph') {
+    return <GraphExplorer onBack={() => setCurrentPage('ppa')} />;
+  }
+
   const renderPage = () => {
     switch (currentPage) {
       case 'ppa':
@@ -168,9 +173,7 @@ function App() {
       case 'workload':
         return <WorkloadAnalyzerPage />;
       case 'yield':
-        return <YieldDashboardPage />;
-      case 'graph':
-        return <GraphExplorer />;
+        return <YieldDashboardPage onNavigateToGraph={() => setCurrentPage('graph')} />;
       case 'seed':
         return <SeedDataWizard />;
       case 'history':

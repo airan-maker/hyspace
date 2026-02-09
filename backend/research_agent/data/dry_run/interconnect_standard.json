@@ -1,0 +1,182 @@
+{
+  "nodes": [
+    {
+      "key": "PCIE_5_0",
+      "label": "InterconnectStandard",
+      "name": "PCIe 5.0",
+      "properties": {
+        "version": "5.0",
+        "protocol_type": "PCIe",
+        "bandwidth_gtps": 32,
+        "bandwidth_per_lane_gbps": 3.94,
+        "max_lanes": 16,
+        "total_bandwidth_gbps": 63,
+        "encoding": "128b/130b",
+        "year": 2019,
+        "description": "현재 데이터센터 표준 인터커넥트",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "PCIE_6_0",
+      "label": "InterconnectStandard",
+      "name": "PCIe 6.0",
+      "properties": {
+        "version": "6.0",
+        "protocol_type": "PCIe",
+        "bandwidth_gtps": 64,
+        "bandwidth_per_lane_gbps": 7.56,
+        "max_lanes": 16,
+        "total_bandwidth_gbps": 121,
+        "encoding": "PAM4 + FLIT",
+        "year": 2022,
+        "description": "PAM4 시그널링 도입, 대역폭 2배",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "CXL_3_0",
+      "label": "InterconnectStandard",
+      "name": "CXL 3.0",
+      "properties": {
+        "version": "3.0",
+        "protocol_type": "CXL",
+        "bandwidth_gtps": 64,
+        "base_spec": "PCIe 6.0",
+        "features": [
+          "Memory Pooling",
+          "Switching",
+          "Multi-headed Device",
+          "Global Fabric"
+        ],
+        "year": 2023,
+        "description": "패브릭 기반 메모리 공유, 멀티호스트 지원",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "UCIE_1_1",
+      "label": "InterconnectStandard",
+      "name": "UCIe 1.1",
+      "properties": {
+        "version": "1.1",
+        "protocol_type": "UCIe",
+        "bandwidth_per_lane_gbps": 32,
+        "bump_pitch_um": 25,
+        "standard_package_bandwidth_gbps": 1317,
+        "year": 2023,
+        "description": "유니버설 칩렛 인터커넥트, 패키지 내 die-to-die 표준",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "NVLINK_5_0",
+      "label": "InterconnectStandard",
+      "name": "NVLink 5.0",
+      "properties": {
+        "version": "5.0",
+        "protocol_type": "NVLink",
+        "bandwidth_per_link_gbps": 100,
+        "total_bandwidth_gbps": 1800,
+        "links": 18,
+        "vendor": "NVIDIA",
+        "year": 2024,
+        "description": "Blackwell (B200) 세대, GPU-GPU 직접 연결",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "INFINITY_FABRIC",
+      "label": "InterconnectStandard",
+      "name": "AMD Infinity Fabric",
+      "properties": {
+        "version": "4.0",
+        "protocol_type": "Infinity Fabric",
+        "bandwidth_gbps": 896,
+        "vendor": "AMD",
+        "year": 2023,
+        "description": "AMD chiplet 간 인터커넥트, MI300X 탑재",
+        "_web_enriched": true
+      }
+    },
+    {
+      "key": "UALINK_1_0",
+      "label": "InterconnectStandard",
+      "name": "UALink 1.0",
+      "properties": {
+        "version": "1.0",
+        "protocol_type": "UALink",
+        "bandwidth_per_link_gbps": 200,
+        "year": 2024,
+        "consortium": [
+          "AMD",
+          "Google",
+          "Intel",
+          "Meta",
+          "Microsoft",
+          "Broadcom"
+        ],
+        "description": "NVLink 대항 오픈 표준, AI 가속기 간 스케일업 인터커넥트",
+        "_web_enriched": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "from_key": "H100_SXM",
+      "to_key": "PCIE_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "H200_SXM",
+      "to_key": "PCIE_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "B200",
+      "to_key": "PCIE_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "B200",
+      "to_key": "NVLINK_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "MI300X",
+      "to_key": "PCIE_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "MI300X",
+      "to_key": "INFINITY_FABRIC",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "MI325X",
+      "to_key": "PCIE_5_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "MI325X",
+      "to_key": "INFINITY_FABRIC",
+      "type": "USES_INTERCONNECT",
+      "properties": {}
+    },
+    {
+      "from_key": "CXL_3_0",
+      "to_key": "PCIE_6_0",
+      "type": "USES_INTERCONNECT",
+      "properties": {
+        "note": "CXL 3.0 is based on PCIe 6.0 PHY"
+      }
+    }
+  ]
+}

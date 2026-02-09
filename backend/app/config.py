@@ -15,8 +15,14 @@ class Settings(BaseSettings):
     neo4j_user: str = "neo4j"
     neo4j_password: str = "hyspace2026"
 
+    # Anthropic API
+    anthropic_api_key: str = ""
+
+    # Server
+    port: int = 8000
+
     # CORS
-    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000", "*"]
 
     class Config:
         env_file = ".env"
